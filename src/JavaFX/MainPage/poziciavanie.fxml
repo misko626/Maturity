@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="381.0" prefWidth="600.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainPage.PoziciavanieController">
+   <children>
+      <Label fx:id="label" layoutX="33.0" layoutY="312.0" text="Label" textFill="#fcfcfc">
+         <font>
+            <Font name="Segoe UI Bold" size="30.0" />
+         </font></Label>
+      <Button fx:id="pozicajBtn" layoutX="333.0" layoutY="311.0" mnemonicParsing="false" onAction="#onClickPozicaj" prefHeight="25.0" prefWidth="155.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 3px; -fx-background-color: #74EB15;" text="POŽIČAJ" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Pane layoutX="32.0" layoutY="61.0" opacity="0.4" prefHeight="202.0" prefWidth="226.0" style="-fx-background-color: black; -fx-background-radius: 5px;" />
+      <Pane layoutX="33.0" layoutY="61.0" prefHeight="202.0" prefWidth="226.0">
+         <children>
+            <Label layoutX="29.0" layoutY="14.0" text="Vyber si depo" textFill="#74eb15">
+               <font>
+                  <Font name="Agency FB" size="26.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBox" layoutX="29.0" layoutY="67.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="307.0" layoutY="65.0" opacity="0.4" prefHeight="94.0" prefWidth="226.0" style="-fx-background-color: black; -fx-background-radius: 5px;" />
+      <ImageView fx:id="btnBicykel" fitHeight="70.0" fitWidth="62.0" layoutX="324.0" layoutY="68.0" onMouseClicked="#nastavNaBicykel" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/bike.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnKolobezka" fitHeight="62.0" fitWidth="62.0" layoutX="431.0" layoutY="70.0" onMouseClicked="#nastavNaKolobezku" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/kick.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="bicykleDostupne" layoutX="334.0" layoutY="128.0" textFill="#74eb15">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="kolobezkyDostupne" layoutX="438.0" layoutY="131.0" textFill="#74eb15">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutX="307.0" layoutY="162.0" opacity="0.8" prefHeight="94.0" prefWidth="226.0" style="-fx-background-color: white; -fx-background-radius: 5px;">
+         <children>
+            <ChoiceBox fx:id="choiceBoxCas" layoutX="38.0" layoutY="35.0" prefWidth="150.0" />
+            <Label layoutX="14.0" layoutY="6.0" text="Na ako dlho si chces požčať ?">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</AnchorPane>

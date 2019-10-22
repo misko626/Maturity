@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="440.0" prefWidth="780.0" stylesheets="@../../CSS/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Mesta.AdminPageMestaController">
+
+
+
+    <Pane layoutY="-1.0" opacity="0.84" prefHeight="440.0" prefWidth="150.0" style="-fx-background-color: #2E3628;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-1.0">
+        <children>
+            <Button fx:id="buttonUsers" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#onClickButtonUsers" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Používatelia" textFill="#223c17">
+                <font>
+                    <Font name="Agency FB Bold" size="18.0" />
+                </font>
+            </Button>
+            <Button fx:id="buttonLevoca" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickButtonLevoca" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Levoča" textFill="#223c17">
+                <font>
+                    <Font name="Agency FB Bold" size="18.0" />
+                </font>
+            </Button>
+            <Button fx:id="buttonKosice" layoutX="14.0" layoutY="299.0" mnemonicParsing="false" onAction="#onClickButtonKosice" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Košice" textFill="#223c17">
+                <font>
+                    <Font name="Agency FB Bold" size="18.0" />
+                </font>
+            </Button>
+            <Button fx:id="buttonPresov" layoutX="14.0" layoutY="256.0" mnemonicParsing="false" onAction="#onClickButtonPresov" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="#223c17">
+                <font>
+                    <Font name="Agency FB Bold" size="18.0" />
+                </font>
+            </Button>
+         <Label layoutX="52.0" layoutY="126.0" text="ADMIN" textFill="WHITE">
+            <font>
+               <Font name="Agency FB Bold" size="22.0" />
+            </font>
+         </Label>
+         <ImageView fx:id="logoutImage" fitHeight="49.0" fitWidth="38.0" layoutX="92.0" layoutY="386.0" onMouseClicked="#onClickLogout" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../img/logout.png" />
+            </image>
+         </ImageView>
+         <Button layoutX="14.0" layoutY="203.0" mnemonicParsing="false" onAction="#onClickButtonObjednavky" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Objednávky" textFill="#223c17">
+            <font>
+               <Font name="Agency FB Bold" size="18.0" />
+            </font>
+         </Button>
+         <Line endX="75.0" layoutX="61.0" layoutY="245.0" startX="-48.0" stroke="#f8f8f8" />
+        </children>
+    </Pane>
+   <Accordion layoutX="199.0" layoutY="98.0" />
+   <ImageView fitHeight="99.0" fitWidth="100.0" layoutX="26.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../img/accountImage.png" />
+      </image>
+   </ImageView>
+   <TableView fx:id="tablePresov" layoutX="199.0" layoutY="86.0" prefHeight="198.0" prefWidth="299.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="86.0">
+     <columns>
+       <TableColumn fx:id="tableColumnId" prefWidth="131.0" text="ID" />
+       <TableColumn fx:id="tableColumnDepo" prefWidth="134.0" text="DEPO" />
+         <TableColumn fx:id="tableColumnKolobezky" prefWidth="128.0" text="KOLOBEŽKY" />
+         <TableColumn fx:id="tableColumnBicykle" prefWidth="136.0" text="BICYKLE" />
+     </columns>
+      <contextMenu>
+         <ContextMenu>
+           <items>
+               <MenuItem mnemonicParsing="false" onAction="#delete" text="Delete" />
+             <MenuItem mnemonicParsing="false" onAction="#update" text="Update" />
+           </items>
+         </ContextMenu>
+      </contextMenu>
+   </TableView>
+   <Accordion layoutX="252.0" layoutY="14.0" />
+   <Label fx:id="label" layoutX="400.0" layoutY="25.0" text="Prešov" textFill="#362929" AnchorPane.topAnchor="25.0">
+      <font>
+         <Font name="Segoe UI Bold" size="35.0" />
+      </font>
+   </Label>
+   <Button fx:id="addDepoButton" layoutX="646.0" layoutY="34.0" mnemonicParsing="false" onAction="#addDepo" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 3px; -fx-background-color: #74EB15;" text="Pridať depo" textFill="#2c2828" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="34.0">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Button>
+
+
+</AnchorPane>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="440.0" prefWidth="780.0" styleClass="t" stylesheets="@../../CSS/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Users.AdminPageUsersController">
+   <children>
+      <TableView fx:id="tableUsers" layoutX="197.0" layoutY="86.0" prefHeight="200.0" prefWidth="520.0" styleClass="table" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="86.0">
+        <columns>
+          <TableColumn fx:id="tableColumnId" prefWidth="48.0" text="ID" />
+          <TableColumn fx:id="tableColumnName" text="Meno" />
+            <TableColumn fx:id="tableColumnSurname" prefWidth="64.0" text="Priezvisko" />
+            <TableColumn fx:id="tableColumnEmail" prefWidth="110.0" text="Email" />
+            <TableColumn fx:id="tableColumnPassword" text="Heslo" />
+            <TableColumn fx:id="tableColumnNumber" prefWidth="74.0" text="Číslo" />
+            <TableColumn fx:id="tableColumnUserPoints" prefWidth="73.0" text="Body" />
+        </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#delete" text="Delete" />
+                <MenuItem mnemonicParsing="false" onAction="#update" text="Update" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <Pane opacity="0.84" prefHeight="440.0" prefWidth="150.0" style="-fx-background-color: #2E3628;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="pouzivateliaButton" layoutX="11.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Používatelia" textFill="#223c17">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonLevoca" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickButtonPresov" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Levoča" textFill="#223c17">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonKosice" layoutX="14.0" layoutY="299.0" mnemonicParsing="false" onAction="#onClickButtonPresov" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Košice" textFill="#223c17">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="presovButton" layoutX="14.0" layoutY="256.0" mnemonicParsing="false" onAction="#onClickButtonPresov" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="#223c17">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="21.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/accountImage.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="47.0" layoutY="127.0" text="ADMIN" textFill="WHITE">
+               <font>
+                  <Font name="Agency FB Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button layoutX="11.0" layoutY="203.0" mnemonicParsing="false" onAction="#onClickButtonObjednavky" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Objednávky" textFill="#223c17">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Line endX="69.0" layoutX="62.0" layoutY="247.0" startX="-43.5" stroke="WHITE" />
+         </children>
+      </Pane>
+      <Label fx:id="label" layoutX="408.0" layoutY="30.0" text="Používatelia" textAlignment="CENTER" textFill="#362929" AnchorPane.leftAnchor="408.0" AnchorPane.rightAnchor="229.0">
+         <font>
+            <Font name="Agency FB Bold" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="logoutImage" fitHeight="41.0" fitWidth="40.0" layoutX="102.0" layoutY="390.0" onMouseClicked="#onClickLogout" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0">
+         <image>
+            <Image url="@../../img/logout.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="422.0" prefWidth="340" stylesheets="@../../CSS/style-main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Mesta.AddDepoController">
+    <children>
+        <Button fx:id="addDepoButton" layoutX="93.0" layoutY="336.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="25.0" prefWidth="155.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 3px; -fx-background-color: #74EB15;" text="Pridaj" textFill="WHITE">
+            <font>
+                <Font name="Agency FB Bold" size="20.0" />
+            </font>
+            <effect>
+                <DropShadow />
+            </effect>
+        </Button>
+        <Pane layoutX="63.0" layoutY="72.0" opacity="0.73" prefHeight="232.0" prefWidth="215.0" style="-fx-background-color: black; -fx-background-radius: 5px;" />
+        <Pane layoutX="70.0" layoutY="72.0" prefHeight="232.0" prefWidth="200.0">
+            <children>
+                <TextField fx:id="depoField" layoutX="17.0" layoutY="35.0" onAction="#onClickAdd" prefHeight="40.0" prefWidth="166.0" promptText="Depo" />
+                <TextField fx:id="kolobezkyField" layoutX="17.0" layoutY="87.0" onAction="#onClickAdd" prefHeight="40.0" prefWidth="166.0" promptText="Kolobezky" />
+                <TextField fx:id="bicykleField" layoutX="17.0" layoutY="139.0" onAction="#onClickAdd" prefHeight="40.0" prefWidth="166.0" promptText="Bicykle" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

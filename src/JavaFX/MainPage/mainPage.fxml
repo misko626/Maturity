@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="440.0" prefWidth="780.0" stylesheets="@../CSS/style-main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainPage.MainPageController">
+   <children>
+      <ImageView fx:id="mapImage" fitHeight="336.0" fitWidth="341.0" layoutX="36.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="80.0">
+         <image>
+            <Image url="@../img/mapa.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Accordion />
+      <ImageView fitHeight="115.0" fitWidth="111.0" layoutX="25.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="mestoText" layoutX="515.0" layoutY="18.0" text="Prešov" textFill="WHITE">
+         <font>
+            <Font name="Agency FB" size="52.0" />
+         </font>
+      </Label>
+      <Button fx:id="presovButton" layoutX="413.0" layoutY="106.0" mnemonicParsing="false" onAction="#onClickPresov" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="kosiceButton" layoutX="519.0" layoutY="106.0" mnemonicParsing="false" onAction="#onClickKosice" prefHeight="34.0" prefWidth="79.0" style="-fx-background-color: #c3c6cc;" text="Košice" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="levocaButton" layoutX="636.0" layoutY="106.0" mnemonicParsing="false" onAction="#onClickLevoca" style="-fx-background-color: #c3c6cc;" text="Levoča" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="lendButton" layoutX="481.0" layoutY="372.0" mnemonicParsing="false" onAction="#onClickPoziciavanie" prefHeight="25.0" prefWidth="155.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 3px; -fx-background-color: #74EB15;" text="Požičaj" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="481.0" AnchorPane.rightAnchor="144.0">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <TableView fx:id="tableMain" layoutX="424.0" layoutY="179.0" prefHeight="183.0" prefWidth="298.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="179.0">
+        <columns>
+          <TableColumn fx:id="columnDepo" prefWidth="104.0" text="Depo:" />
+          <TableColumn fx:id="columnKolobezky" minWidth="0.0" prefWidth="110.0" text="Kolobežky:" />
+            <TableColumn fx:id="columnBicykle" prefWidth="85.0" text="Bicykle:" />
+        </columns>
+      </TableView>
+      <Label layoutX="410.0" layoutY="80.0" text="Vyber si mesto" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="410.0" layoutY="148.0" text="Informácie o dostupnosti:" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+      </Label>
+      <Pane fx:id="sideMenuPane" layoutX="-182" prefHeight="440.0" prefWidth="182.0" style="-fx-background-color: #2E3628;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-182.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="109.0" fitWidth="130.0" layoutX="37.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/accountImage.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="menoLabel" layoutX="26.0" layoutY="149.0" prefHeight="27.0" prefWidth="132.0" text="Michal " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailLabel" layoutX="26.0" layoutY="190.0" prefHeight="20.0" prefWidth="155.0" text="email@email.com" textFill="#74eb15">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Line endX="85.0" layoutX="71.0" layoutY="278.0" startX="-43.5" stroke="WHITE" />
+            <Label fx:id="points" layoutX="82.0" layoutY="220.0" prefHeight="38.0" prefWidth="44.0" text="15" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black Italic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logoutImage" fitHeight="44.0" fitWidth="64.0" layoutX="104.0" layoutY="371.0" onMouseClicked="#onClickLogout" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logout.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="229.0" text="Body:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="24.0" layoutY="371.0" onMouseClicked="#onClickSettings" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/settings.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fx:id="menuButton" fitHeight="44.0" fitWidth="44.0" layoutX="715.0" layoutY="21.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="21.0">
+         <image>
+            <Image url="@../img/menu.png" />
+         </image>
+      </ImageView>
+
+
+   </children>
+</AnchorPane>

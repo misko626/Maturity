@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="460.0" prefWidth="462.0" stylesheets="@../../CSS/style-main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Objednavky.UpdateObjednavkyController">
+   <children>
+      <Pane layoutX="27.0" layoutY="71.0" opacity="0.73" prefHeight="277.0" prefWidth="410.0" style="-fx-background-color: black; -fx-background-radius: 5px;" />
+      <Pane layoutX="29.0" layoutY="69.0" prefHeight="277.0" prefWidth="404.0">
+         <children>
+            <TextField fx:id="depoField" layoutX="17.0" layoutY="35.0" onAction="#updateObjednavky" prefHeight="40.0" prefWidth="166.0" promptText="Depo" />
+            <TextField fx:id="kolobezkaField" layoutX="17.0" layoutY="87.0" onAction="#updateObjednavky" prefHeight="40.0" prefWidth="166.0" promptText="Kolobežka" />
+            <TextField fx:id="casField" layoutX="17.0" layoutY="139.0" onAction="#updateObjednavky" prefHeight="40.0" prefWidth="166.0" promptText="Čas od" />
+            <TextField fx:id="hodinyField" layoutX="17.0" layoutY="191.0" onAction="#updateObjednavky" prefHeight="40.0" prefWidth="166.0" promptText="Čas do" />
+            <TextField fx:id="emailField" layoutX="198.0" layoutY="36.0" onAction="#updateObjednavky" prefHeight="40.0" prefWidth="166.0" promptText="Email" />
+            <TextField fx:id="mestoField" layoutX="197.0" layoutY="87.0" onAction="#updateObjednavky" prefHeight="40.0" prefWidth="166.0" promptText="Mesto" />
+         </children>
+      </Pane>
+      <Button fx:id="updateButton" layoutX="155.0" layoutY="381.0" mnemonicParsing="false" onAction="#updateObjednavky" prefHeight="25.0" prefWidth="155.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 3px; -fx-background-color: #74EB15;" text="Uprav" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

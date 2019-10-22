@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="460.0" prefWidth="340.0" stylesheets="@../../CSS/style-main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Users.UpdateUserController">
+   <children>
+      <Pane layoutX="67.0" layoutY="71.0" opacity="0.73" prefHeight="277.0" prefWidth="215.0" style="-fx-background-color: black; -fx-background-radius: 5px;" />
+      <Pane layoutX="69.0" layoutY="69.0" prefHeight="277.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="nameField" layoutX="17.0" layoutY="23.0" onAction="#updateUser" prefHeight="40.0" prefWidth="166.0" promptText="Meno" />
+            <TextField fx:id="surNameField" layoutX="17.0" layoutY="73.0" onAction="#updateUser" prefHeight="40.0" prefWidth="166.0" promptText="Priezvisko" />
+            <TextField fx:id="emailField" layoutX="17.0" layoutY="119.0" onAction="#updateUser" prefHeight="40.0" prefWidth="166.0" promptText="Email" />
+            <TextField fx:id="passField" layoutX="17.0" layoutY="172.0" onAction="#updateUser" prefHeight="40.0" prefWidth="166.0" promptText="Heslo" />
+            <TextField fx:id="userPointsField" layoutX="17.0" layoutY="223.0" onAction="#updateUser" prefHeight="40.0" prefWidth="166.0" promptText="Body" />
+         </children>
+      </Pane>
+      <Button fx:id="updateButton" layoutX="97.0" layoutY="383.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="155.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 3px; -fx-background-color: #74EB15;" text="Uprav" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
