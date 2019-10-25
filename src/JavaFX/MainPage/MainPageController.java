@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -74,8 +75,9 @@ public class MainPageController extends Controller implements Initializable {
             menoLabel.setText(user.getName());
             points.setText("" + user.getUserPoints());
             String s = "";
-            if(user.getEmail().length() > 15) s += "...";
-            emailLabel.setText(user.getEmail().substring(0,15) + s);
+            if(user.getEmail().length() > 15){ s += "...";
+            emailLabel.setText(user.getEmail().substring(0,15) + s);}
+            else{emailLabel.setText(user.getEmail());}
             data = FXCollections.observableArrayList();
             setCellTable();
             onClickPresov();
@@ -144,7 +146,7 @@ public class MainPageController extends Controller implements Initializable {
         cisloMesta = 0;
         mapImage.setImage(new Image(getClass().getResource("../img/mapa.png").toString()));
         mestoText.setText("Prešov");
-        presovButton.setStyle("-fx-background-color:  #74EB15;");
+        presovButton.setStyle("-fx-background-color:  #0c9c7f;");
         kosiceButton.setStyle("-fx-background-color:   #c3c6cc;");
         levocaButton.setStyle("-fx-background-color:   #c3c6cc;");
     }
@@ -156,7 +158,7 @@ public class MainPageController extends Controller implements Initializable {
         cisloMesta = 1;
         mapImage.setImage(new Image(getClass().getResource("../img/mapa-kosice.png").toString()));
         mestoText.setText("Košice");
-        kosiceButton.setStyle("-fx-background-color:  #74EB15;");
+        kosiceButton.setStyle("-fx-background-color:  #0c9c7f;");
         presovButton.setStyle("-fx-background-color:   #c3c6cc;");
         levocaButton.setStyle("-fx-background-color:   #c3c6cc;");
     }
@@ -169,7 +171,7 @@ public class MainPageController extends Controller implements Initializable {
         cisloMesta = 2;
         mapImage.setImage(new Image(getClass().getResource("../img/mapa-levoca.png").toString()));
         mestoText.setText("Levoča");
-        levocaButton.setStyle("-fx-background-color:  #74EB15;");
+        levocaButton.setStyle("-fx-background-color:  #0c9c7f;");
         presovButton.setStyle("-fx-background-color:   #c3c6cc;");
         kosiceButton.setStyle("-fx-background-color:   #c3c6cc;");
     }
@@ -182,7 +184,7 @@ public class MainPageController extends Controller implements Initializable {
 
     public void setButtonToLend() {
         isLending = true;
-        lendButton.setStyle("-fx-background-color:  green;");
+        lendButton.setStyle("-fx-background-color:  #1ABC9C;");
         lendButton.setText("Požičať");
     }
 
@@ -208,8 +210,9 @@ public class MainPageController extends Controller implements Initializable {
 
     public void onClickSettings() throws IOException {
         Stage stage = (Stage) new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("./userSettings.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./userSettingsExtended.fxml"));
 
         Functions.openNewSceneWithUser(stage, user, loader, "Nastavenia");
         UserSettingsController userSettingsController=loader.getController();

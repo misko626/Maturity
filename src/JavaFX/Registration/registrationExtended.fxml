@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Registration.RegistrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Registration.RegistrationController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="563.0" prefWidth="727.0" style="-fx-background-color: transparent;">
          <children>
-            <AnchorPane layoutX="311.0" layoutY="31.0" prefHeight="521.0" prefWidth="316.0" style="-fx-background-color: linear-gradient(to bottom, #f2ac52, #eebd69, #eacd82, #e9db9d, #ebe8b9);">
+            <AnchorPane layoutX="311.0" layoutY="31.0" prefHeight="521.0" prefWidth="316.0" style="-fx-background-color: #f2f2f2;">
                <children>
-                  <Label layoutX="107.0" layoutY="43.0" text="Register" textFill="WHITE">
+                  <Label layoutX="111.0" layoutY="36.0" text="Register" textFill="#ff9900">
                      <font>
-                        <Font name="Segoe UI Bold" size="30.0" />
+                        <Font name="Agency FB Bold" size="36.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="registerNameField" focusColor="WHITE" labelFloat="true" layoutX="73.0" layoutY="91.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Name">
+                  <JFXTextField fx:id="registerNameField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="91.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Meno">
                      <effect>
                         <Blend />
                      </effect>
@@ -31,7 +31,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="registerLastNameField" focusColor="WHITE" labelFloat="true" layoutX="73.0" layoutY="148.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Surname">
+                  <JFXTextField fx:id="registerLastNameField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="148.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Priezvisko">
                      <effect>
                         <Blend />
                      </effect>
@@ -39,7 +39,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="registerEmailField" focusColor="WHITE" labelFloat="true" layoutX="73.0" layoutY="206.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Email">
+                  <JFXTextField fx:id="registerEmailField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="206.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Email">
                      <effect>
                         <Blend />
                      </effect>
@@ -47,7 +47,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="registerNumberField" focusColor="WHITE" labelFloat="true" layoutX="73.0" layoutY="261.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Number">
+                  <JFXTextField fx:id="registerNumberField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="261.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Tel. číslo">
                      <effect>
                         <Blend />
                      </effect>
@@ -55,24 +55,24 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField fx:id="registerPasswordField" focusColor="WHITE" labelFloat="true" layoutX="73.0" layoutY="317.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Password">
+                  <JFXPasswordField fx:id="registerPasswordField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="317.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Heslo">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXPasswordField fx:id="registerPasswordField2" focusColor="WHITE" labelFloat="true" layoutX="73.0" layoutY="374.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Password again">
+                  <JFXPasswordField fx:id="registerPasswordField2" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="374.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Znova zadaj heslo">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXButton fx:id="registerButton" layoutX="111.0" layoutY="439.0" onAction="#registerOnClick" prefHeight="43.0" prefWidth="95.0" style="-fx-background-color: orange; -fx-border-radius: 15px; -fx-background-radius: 1em;" text="Register" textFill="WHITE">
+                  <JFXButton fx:id="registerButton" layoutX="106.0" layoutY="436.0" onAction="#registerOnClick" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: orange; -fx-border-radius: 1px; -fx-background-radius: 5px;" text="Registrovať" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </JFXButton>
-                  <Button fx:id="backButton" layoutX="126.0" layoutY="482.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: none; -fx-border-width: 0 0 2px 0; -fx-border-color: white; -fx-padding: 0;" text="Log In" textFill="WHITE">
+                  <Button fx:id="backButton" layoutX="131.0" layoutY="483.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: none; -fx-border-width: 0 0 2px 0; -fx-border-color: #ff9900; -fx-padding: 0;" text="Prihlas sa">
                      <font>
-                        <Font name="Agency FB" size="18.0" />
+                        <Font name="Agency FB" size="20.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />

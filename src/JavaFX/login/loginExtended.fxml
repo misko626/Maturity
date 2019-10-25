@@ -13,18 +13,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.login.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.login.LoginController">
    <children>
       <AnchorPane layoutX="20.0" layoutY="12.0" prefHeight="584.0" prefWidth="727.0" style="-fx-background-color: transparent;">
          <children>
-            <AnchorPane layoutX="306.0" layoutY="35.0" prefHeight="520.0" prefWidth="320.0" style="-fx-background-color: white;">
+            <AnchorPane layoutX="306.0" layoutY="35.0" prefHeight="520.0" prefWidth="320.0" style="-fx-background-color: #f2f2f2;">
                <children>
-                  <Label layoutX="117.0" layoutY="93.0" text="Login" textFill="WHITE">
+                  <Label layoutX="128.0" layoutY="92.0" text="Login" textFill="#ff9900">
                      <font>
-                        <Font name="Segoe UI Bold" size="36.0" />
+                        <Font name="Agency FB Bold" size="36.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="loginEmailField" focusColor="#ff9900" labelFloat="true" layoutX="72.0" layoutY="159.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="209.0" promptText="Name">
+                  <JFXTextField fx:id="loginEmailField" focusColor="#ff9900" labelFloat="true" layoutX="72.0" layoutY="159.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="209.0" promptText="Meno">
                      <effect>
                         <Blend />
                      </effect>
@@ -32,7 +32,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField fx:id="loginPasswordField" focusColor="#ff9900" labelFloat="true" layoutX="72.0" layoutY="253.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="209.0" promptText="Password">
+                  <JFXPasswordField fx:id="loginPasswordField" focusColor="#ff9900" labelFloat="true" layoutX="72.0" layoutY="253.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="209.0" promptText="Heslo">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -42,12 +42,12 @@
                         <Image url="@../img/logo.png" />
                      </image>
                   </ImageView>
-                  <JFXButton fx:id="loginButton" layoutX="117.0" layoutY="353.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="95.0" ripplerFill="BLACK" style="-fx-background-color: #ff9900; -fx-border-radius: 1px; -fx-background-radius: 5px;" text="Login" textFill="WHITE">
+                  <JFXButton fx:id="loginButton" layoutX="117.0" layoutY="353.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="95.0" ripplerFill="BLACK" style="-fx-background-color: #ff9900; -fx-border-radius: 1px; -fx-background-radius: 5px;" text="Prihlásiť" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </JFXButton>
-                  <Button fx:id="joinUs" layoutX="109.0" layoutY="445.0" mnemonicParsing="false" onAction="#onClickJoinUs" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: none; -fx-border-width: 0 0 2px 0; -fx-border-color: white; -fx-padding: 0;" text="Registruj sa" textFill="#030303">
+                  <Button fx:id="joinUs" layoutX="109.0" layoutY="445.0" mnemonicParsing="false" onAction="#onClickJoinUs" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: none; -fx-border-width: 0 0 2px 0; -fx-border-color: #ff9900; -fx-padding: 0;" text="Registruj sa" textFill="#030303">
                      <font>
                         <Font name="Agency FB" size="24.0" />
                      </font>
