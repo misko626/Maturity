@@ -27,7 +27,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <JFXButton fx:id="presovButton" layoutX="411.0" layoutY="107.0" onAction="#onClickPresov" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="WHITE">
+      <JFXButton fx:id="presovButton" layoutX="411.0" layoutY="107.0" onAction="#onClickPresov" ripplerFill="BLACK" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="17.0" />
          </font>
@@ -35,7 +35,7 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="kosiceButton" layoutX="494.0" layoutY="107.0" onAction="#onClickKosice" style="-fx-background-color: #c3c6cc;" text="Košice" textFill="WHITE">
+      <JFXButton fx:id="kosiceButton" layoutX="494.0" layoutY="107.0" onAction="#onClickKosice" ripplerFill="BLACK" style="-fx-background-color: #c3c6cc;" text="Košice" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="17.0" />
          </font>
@@ -43,7 +43,7 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="levocaButton" layoutX="576.0" layoutY="107.0" onAction="#onClickLevoca" style="-fx-background-color: #c3c6cc;" text="Levoča" textFill="WHITE">
+      <JFXButton fx:id="levocaButton" layoutX="576.0" layoutY="107.0" onAction="#onClickLevoca" ripplerFill="BLACK" style="-fx-background-color: #c3c6cc;" text="Levoča" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="17.0" />
          </font>
@@ -57,7 +57,7 @@
             <Image url="@../img/logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="mestoText" layoutX="515.0" layoutY="18.0" text="Prešov" AnchorPane.topAnchor="18.0">
+      <Label fx:id="mestoText" layoutX="515.0" layoutY="18.0" stylesheets="@../CSS/StyleFontsMain.css" text="Prešov" AnchorPane.topAnchor="18.0">
          <font>
             <Font name="Agency FB" size="52.0" />
          </font>
@@ -82,12 +82,15 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Label>
-      <Pane fx:id="sideMenuPane" layoutX="-183.0" prefHeight="440.0" prefWidth="182.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-183.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="sideMenuPane" prefHeight="440.0" prefWidth="182.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="109.0" fitWidth="130.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/account.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
             <Label fx:id="menoLabel" layoutX="38.0" layoutY="136.0" prefHeight="36.0" prefWidth="105.0" style="-fx-border-color: #1ABC9C; -fx-border-width: 0 0 1px 0;" text="Michal " textAlignment="CENTER" textFill="#0d0d0d">
                <font>

@@ -48,6 +48,8 @@ public class AdminPageMestaController implements Initializable {
     @FXML
     public Button buttonUsers;
     @FXML
+    public Button buttonObjednavky;
+    @FXML
     public ImageView logoutImage;
     @FXML
     public Label label;
@@ -65,6 +67,7 @@ public class AdminPageMestaController implements Initializable {
         data = FXCollections.observableArrayList();
         setCellTable();
         onClickButtonPresov();
+
     }
     public void setCellTable() {
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -91,9 +94,9 @@ public class AdminPageMestaController implements Initializable {
 
         tablePresov.setItems(Functions.updateTable(mesto));
 
-        buttonPresov.setStyle("-fx-background-color:  #74EB15;");
-        buttonKosice.setStyle("-fx-background-color:   #c3c6cc;");
-        buttonLevoca.setStyle("-fx-background-color:   #c3c6cc;");
+        buttonPresov.setStyle("-fx-background-color:  #1ABC9C;");
+        buttonKosice.setStyle("-fx-background-color:    #f2f2f2; -fx-border-color: black; -fx-border-width: 0 0 1px 0");
+        buttonLevoca.setStyle("-fx-background-color:    #f2f2f2; -fx-border-color: black; -fx-border-width: 0 0 1px 0");
         label.setText("Prešov");
 
     }
@@ -102,9 +105,9 @@ public class AdminPageMestaController implements Initializable {
         mesto = "KOSICE";
         data.clear();
         tablePresov.setItems(Functions.updateTable(mesto));
-        buttonKosice.setStyle("-fx-background-color:  #74EB15;");
-        buttonPresov.setStyle("-fx-background-color:   #c3c6cc;");
-        buttonLevoca.setStyle("-fx-background-color:   #c3c6cc;");
+        buttonKosice.setStyle("-fx-background-color:  #1ABC9C;");
+        buttonPresov.setStyle("-fx-background-color:    #f2f2f2; -fx-border-color: black; -fx-border-width: 0 0 1px 0");
+        buttonLevoca.setStyle("-fx-background-color:    #f2f2f2; -fx-border-color: black; -fx-border-width: 0 0 1px 0");
         label.setText("Košice");
 
     }
@@ -113,9 +116,9 @@ public class AdminPageMestaController implements Initializable {
         data.clear();
         //Naplnenie tabulky udajmi
         tablePresov.setItems(Functions.updateTable(mesto));
-        buttonLevoca.setStyle("-fx-background-color:  #74EB15;");
-        buttonKosice.setStyle("-fx-background-color:   #c3c6cc;");
-        buttonPresov.setStyle("-fx-background-color:   #c3c6cc;");
+       buttonLevoca.setStyle("-fx-background-color:  #1ABC9C;");
+        buttonKosice.setStyle("-fx-background-color:    #f2f2f2; -fx-border-color: black; -fx-border-width: 0 0 1px 0");
+        buttonPresov.setStyle("-fx-background-color:    #f2f2f2; -fx-border-color: black; -fx-border-width: 0 0 1px 0");
         label.setText("Levoča");
     }
     public void update() throws IOException {
@@ -145,7 +148,7 @@ public class AdminPageMestaController implements Initializable {
     }
 
     public void onClickLogout() throws IOException {
-       /* Stage stage = (Stage) logoutImage.getScene().getWindow();
+        /*Stage stage = (Stage) logoutImage.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../../login/login.fxml"));
         Functions.openNewScene(stage, loader, "Login");*/
         NewScene.i.openNewScene2("login/loginExtended.fxml");

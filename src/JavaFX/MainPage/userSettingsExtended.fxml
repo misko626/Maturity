@@ -92,7 +92,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <Pane layoutX="308.0" layoutY="24.0" prefHeight="306.0" prefWidth="262.0" style="-fx-background-color: #f2f2f2;">
+      <Pane layoutX="308.0" layoutY="24.0" prefHeight="306.0" prefWidth="262.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 3px;">
          <children>
             <Label layoutX="80.0" layoutY="1.0" text="Zmena hesla" textFill="#1abc9c">
                <font>

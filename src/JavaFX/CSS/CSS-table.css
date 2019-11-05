@@ -1,4 +1,4 @@
-.table{
+/*.table{
     -fx-background-color: transparent;
 }
 .table-view .column-header-background{
@@ -52,4 +52,14 @@
 .table-row-cell:selected {
     -fx-background-color: rgba(69, 63, 62, 0.2);
 
+}*/
+
+@font-face {
+    font-family:'Boogaloo';
+    src: url('Boogaloo-Regular.ttf');
+}
+
+.label {
+    -fx-font-family: "Boogaloo";
+    -fx-font-size: 15px;
 }

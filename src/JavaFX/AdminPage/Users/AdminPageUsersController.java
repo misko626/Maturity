@@ -68,7 +68,7 @@ public class AdminPageUsersController implements Initializable {
 
     public void onClickButtonPresov(ActionEvent event) throws IOException {
         Stage stage = (Stage) presovButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Mesta/adminPageMesta.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Mesta/adminPageMestaExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin page");
     }
 

@@ -1,0 +1,9 @@
+@font-face {
+    font-family:'Boogaloo';
+    src: url('Boogaloo-Regular.ttf');
+}
+
+.label {
+    -fx-font-family: "Boogaloo";
+    -fx-font-size: 52px;
+}
