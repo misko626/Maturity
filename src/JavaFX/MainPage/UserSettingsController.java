@@ -148,5 +148,9 @@ public class UserSettingsController extends Controller implements Initializable 
     public void setRodic(MainPageController rodic) {
         this.rodic = rodic;
     }
+    public void onClickClose(){
+        Stage stage = (Stage) nameField.getScene().getWindow();
+        stage.close();
 
+    }
 }

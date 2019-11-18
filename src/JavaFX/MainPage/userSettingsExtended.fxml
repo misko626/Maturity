@@ -92,14 +92,14 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Label>
-      <Pane layoutX="308.0" layoutY="24.0" prefHeight="306.0" prefWidth="262.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 3px;">
+      <Pane layoutX="307.0" layoutY="24.0" prefHeight="306.0" prefWidth="262.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 3px;">
          <children>
             <Label layoutX="80.0" layoutY="1.0" text="Zmena hesla" textFill="#1abc9c">
                <font>
                   <Font name="Agency FB Bold" size="24.0" />
                </font>
             </Label>
-            <JFXButton fx:id="updatePassButton" layoutX="60.0" layoutY="268.0" onAction="#onClickUpdatePass" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Zmež heslo" textFill="WHITE">
+            <JFXButton fx:id="updatePassButton" layoutX="60.0" layoutY="268.0" onAction="#onClickUpdatePass" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Zmeň heslo" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
@@ -148,5 +148,10 @@
             </ImageView>
          </children>
       </Pane>
+      <ImageView fx:id="closeButton" fitHeight="23.0" fitWidth="28.0" layoutX="569.0" layoutY="3.0" onMouseClicked="#onClickClose" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/cancel.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

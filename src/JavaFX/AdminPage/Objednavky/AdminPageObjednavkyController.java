@@ -3,6 +3,7 @@ package JavaFX.AdminPage.Objednavky;
 import JavaFX.Entity.Objednavky;
 import JavaFX.Functions;
 import JavaFX.NewScene;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,7 +24,9 @@ public class AdminPageObjednavkyController implements Initializable {
     @FXML
     private ImageView logoutImage;
     @FXML
-    private Button presovButton;
+    private Button buttonUsers;
+    @FXML
+    private Button objednavkyButton;
     @FXML
     public TableView<Objednavky> tableObjednavky;
     @FXML
@@ -44,8 +47,11 @@ public class AdminPageObjednavkyController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setCellTable();
-        tableObjednavky.setItems(Functions.updateTableObjednavky());
+        Platform.runLater(() -> {
+            objednavkyButton.setStyle("-fx-background-color:  #1ABC9C;");
+            setCellTable();
+            tableObjednavky.setItems(Functions.updateTableObjednavky());
+        });
     }
 
     public void setCellTable() {
@@ -59,23 +65,21 @@ public class AdminPageObjednavkyController implements Initializable {
     }
 
     public void onClickPouzivateliaButton() throws IOException {
-        Stage stage = (Stage) presovButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Users/adminPageUsers.fxml"));
+        Stage stage = (Stage) tableObjednavky.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Users/adminPageUsersExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin Page");
     }
 
     public void onClickButtonPresov() throws IOException {
-        Stage stage = (Stage) presovButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Mesta/adminPageMesta.fxml"));
+
+        Stage stage = (Stage) tableObjednavky.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Mesta/adminPageMestaExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin page");
     }
 
     public void onClickLogout() throws IOException {
-        /*Stage stage = (Stage) logoutImage.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../login/login.fxml"));
-        Functions.openNewScene(stage, loader, "Login");*/
         NewScene.i.openNewScene2("login/loginExtended.fxml");
-        Stage stage = (Stage)presovButton.getScene().getWindow();
+        Stage stage = (Stage)tableObjednavky.getScene().getWindow();
         stage.close();
     }
 
@@ -103,5 +107,9 @@ public class AdminPageObjednavkyController implements Initializable {
         System.out.println("Vymazane depo s id " + tableObjednavky.getSelectionModel().getSelectedItem().getId());
         tableObjednavky.setItems(Functions.updateTableObjednavky());
 
+    }
+    public void onClickClose(){
+        Stage stage = (Stage) tableObjednavky.getScene().getWindow();
+        stage.close();
     }
 }

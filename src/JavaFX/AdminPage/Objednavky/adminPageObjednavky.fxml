@@ -75,7 +75,7 @@
                   <Font name="Agency FB Bold" size="22.0" />
                </font>
             </Label>
-            <Button layoutX="11.0" layoutY="203.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Objednávky" textFill="#223c17">
+            <Button layoutX="11.0" layoutY="202.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #c3c6cc;" text="Objednávky" textFill="#223c17">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>

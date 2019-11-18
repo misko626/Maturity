@@ -66,5 +66,10 @@ public class AddDepoController implements Initializable {
     public void setRodic(AdminPageMestaController rodic) {
         this.rodic = rodic;
     }
+    public void onClickClose(){
+        Stage stage = (Stage) depoField.getScene().getWindow();
+        stage.close();
+        System.out.println("Ahojadmin   ");
+    }
 
 }

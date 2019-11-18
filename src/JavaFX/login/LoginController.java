@@ -46,7 +46,7 @@ public class LoginController implements Initializable {
 
         if (loginEmailField.getText().equals(adminMeno) && loginPasswordField.getText().equals(adminHeslo)) {
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../AdminPage/Users/adminPageUsers.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../AdminPage/Users/adminPageUsersExtended.fxml"));
             Functions.openNewScene(stage, loader, "Admin page");
         } else {
             String emailLogin = loginEmailField.getText().toString();
@@ -87,9 +87,7 @@ public class LoginController implements Initializable {
     }
 
     public void onClickJoinUs(ActionEvent event) throws IOException {
-       /* Stage stage = (Stage) joinUs.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Registration/registrationExtended.fxml"));
-        Functions.openNewScene(stage, loader, "Registrácia");*/
+
         NewScene.i.openNewScene2("Registration/registrationExtended.fxml");
         Stage stage = (Stage)joinUs.getScene().getWindow();
         stage.close();

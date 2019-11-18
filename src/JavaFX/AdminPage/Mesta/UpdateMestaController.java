@@ -71,7 +71,12 @@ public class UpdateMestaController implements Initializable {
     }
 
     public void setRodic(AdminPageMestaController rodic) {
-        this.rodic = rodic;
+    this.rodic = rodic;
     }
+    public void onClickClose(){
+        Stage stage = (Stage) depoField.getScene().getWindow();
+        stage.close();
+    }
+
 
 }

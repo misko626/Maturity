@@ -50,7 +50,7 @@ public class AdminPageUsersController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        pouzivateliaButton.setStyle("-fx-background-color:  #74EB15;");
+        pouzivateliaButton.setStyle("-fx-background-color:  #1ABC9C;");
         setCellTable();
         //naplnenie tabulky udajmi
         tableUsers.setItems(Functions.updateTableUsers());
@@ -74,7 +74,7 @@ public class AdminPageUsersController implements Initializable {
 
     public void onClickButtonObjednavky() throws IOException {
         Stage stage = (Stage) buttonKosice.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Objednavky/adminPageObjednavky.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Objednavky/adminPageObjednavkyExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin Page");
     }
 
@@ -105,11 +105,13 @@ public class AdminPageUsersController implements Initializable {
     }
 
     public void onClickLogout() throws IOException {
-       /* Stage stage = (Stage) logoutImage.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../login/login.fxml"));
-        Functions.openNewScene(stage, loader, "Login");*/
         NewScene.i.openNewScene2("login/loginExtended.fxml");
         Stage stage = (Stage)tableUsers.getScene().getWindow();
+        stage.close();
+    }
+
+    public void onClickClose(){
+        Stage stage = (Stage) tableUsers.getScene().getWindow();
         stage.close();
     }
 }

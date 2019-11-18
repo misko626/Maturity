@@ -6,6 +6,7 @@ import JavaFX.NewScene;
 import JavaFX.connectivity.ConnectionClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,8 +18,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -61,6 +65,7 @@ public class AdminPageMestaController implements Initializable {
     PreparedStatement statement = null;
 
     static String mesto = "";
+    double xOffset, yOffset;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,12 +82,12 @@ public class AdminPageMestaController implements Initializable {
     }
     public void onClickButtonUsers(ActionEvent event) throws IOException {
         Stage stage = (Stage) buttonKosice.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Users/adminPageUsers.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Users/adminPageUsersExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin Page");
     }
     public void onClickButtonObjednavky() throws IOException {
         Stage stage = (Stage) buttonKosice.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Objednavky/adminPageObjednavky.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Objednavky/adminPageObjednavkyExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin Page");
 
     }
@@ -123,9 +128,10 @@ public class AdminPageMestaController implements Initializable {
     }
     public void update() throws IOException {
         System.out.println(tablePresov.getSelectionModel().getSelectedItem().getId());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("./updateMesta.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./updateMestaExtended.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
         UpdateMestaController updateMesto = loader.getController();
         updateMesto.fillFieldsMesto(tablePresov.getSelectionModel().getSelectedItem());
@@ -135,6 +141,7 @@ public class AdminPageMestaController implements Initializable {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+        movement(root,stage);
     }
     public void delete() {
         Functions.deleteFromTableMesta(mesto, tablePresov.getSelectionModel().getSelectedItem().getId());
@@ -148,25 +155,46 @@ public class AdminPageMestaController implements Initializable {
     }
 
     public void onClickLogout() throws IOException {
-        /*Stage stage = (Stage) logoutImage.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../login/login.fxml"));
-        Functions.openNewScene(stage, loader, "Login");*/
         NewScene.i.openNewScene2("login/loginExtended.fxml");
         Stage stage = (Stage)buttonKosice.getScene().getWindow();
         stage.close();
     }
 
     public void addDepo() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("./addDepo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./addDepoExtended.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         AddDepoController addDepoController = loader.getController();
         addDepoController.setRodic(this);
-        stage.setTitle("Update user");
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+        movement(root,stage);
+
+    }
+
+    private void movement(Parent root, Stage stage){
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+    }
+
+    public void onClickClose(){
+        Stage stage = (Stage) tablePresov.getScene().getWindow();
+        stage.close();
     }
 
 

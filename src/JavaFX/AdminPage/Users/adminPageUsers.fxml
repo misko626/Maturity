@@ -60,7 +60,7 @@
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="21.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="21.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/accountImage.png" />
                </image>
