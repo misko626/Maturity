@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="422.0" prefWidth="340" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Mesta.AddDepoController">
+<AnchorPane prefHeight="422.0" prefWidth="340.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff); -fx-border-color: gray; -fx-border-width: 3px;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Mesta.AddDepoController">
     <children>
-        <Pane layoutX="43.0" layoutY="25.0" prefHeight="359.0" prefWidth="254.0" style="-fx-background-color: #f2f2f2;">
+        <Pane layoutX="43.0" layoutY="25.0" prefHeight="346.0" prefWidth="254.0" style="-fx-background-color: #f2f2f2;">
             <children>
             <JFXButton fx:id="addDepoButton" layoutX="52.0" layoutY="289.0" onAction="#onClickAdd" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Pridaj" textFill="WHITE">
                <font>

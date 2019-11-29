@@ -113,4 +113,9 @@ public class UpdateObjednavkyController implements Initializable {
     public void setRodic(AdminPageObjednavkyController rodic){
         this.rodic=rodic;
     }
+
+    public void onClickClose(){
+        Stage stage = (Stage) updateButton.getScene().getWindow();
+        stage.close();
+    }
 }

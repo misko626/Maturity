@@ -80,7 +80,7 @@ public class AdminPageUsersController implements Initializable {
 
     public void update() throws IOException {
         System.out.println(tableUsers.getSelectionModel().getSelectedItem().getId());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("./updateUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./updateUserExtended.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root);

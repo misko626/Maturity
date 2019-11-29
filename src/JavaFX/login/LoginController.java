@@ -51,11 +51,12 @@ public class LoginController implements Initializable {
         } else {
             String emailLogin = loginEmailField.getText().toString();
             String passwordLogin = loginPasswordField.getText().toString();
+            String hashPassLogin = Functions.MD5(passwordLogin);
             String sql = "SELECT * from USERS WHERE (email = ? and password = ?)";
             try {
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, emailLogin);
-                preparedStatement.setString(2, passwordLogin);
+                preparedStatement.setString(2, hashPassLogin);
                 resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
                     loginError.setText("Nesprávne Meno alebo Heslo");

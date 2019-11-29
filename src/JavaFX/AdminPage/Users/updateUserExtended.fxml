@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="356.0" prefWidth="523.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff); -fx-border-color: gray; -fx-border-width: 3px;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Users.UpdateUserController">
+   <children>
+      <Pane layoutX="35.0" layoutY="25.0" prefHeight="286.0" prefWidth="459.0" style="-fx-background-color: #f2f2f2;" AnchorPane.leftAnchor="32.0">
+         <children>
+            <JFXTextField fx:id="nameField" focusColor="#1abc9c" labelFloat="true" layoutX="52.0" layoutY="60.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Meno">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="surNameField" focusColor="#1abc9c" labelFloat="true" layoutX="281.0" layoutY="62.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Priezvisko">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="emailField" focusColor="#1abc9c" labelFloat="true" layoutX="52.0" layoutY="120.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Email">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="passField" focusColor="#1abc9c" labelFloat="true" layoutX="281.0" layoutY="120.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Heslo">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="userPointsField" focusColor="#1abc9c" labelFloat="true" layoutX="150.0" layoutY="180.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Body">
+               <effect>
+                  <Blend />
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="updateButton" layoutX="161.0" layoutY="247.0" onAction="#updateUser" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Uprav" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/depo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="155.0" layoutY="14.0" text="Úprava objednávky" textFill="#1abc9c">
+               <font>
+                  <Font name="Agency FB Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="233.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/kolobezka.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="10.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/email.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="102.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/town.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="233.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/oldpass.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fx:id="closeButton" fitHeight="23.0" fitWidth="28.0" layoutX="500.0" layoutY="3.0" onMouseClicked="#onClickClose" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/cancel.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

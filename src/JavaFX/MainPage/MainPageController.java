@@ -115,7 +115,8 @@ public class MainPageController extends Controller implements Initializable {
         if (isLending) {
             Stage stage = (Stage) new Stage();
             stage.setResizable(false);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("./poziciavanie.fxml"));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("./poziciavanieExtended.fxml"));
             Functions.openNewSceneWithUser(stage, user, loader, "Požičiavanie");
             PoziciavanieController poziciavanieController = loader.getController();
             poziciavanieController.setCaller(this);
@@ -217,6 +218,11 @@ public class MainPageController extends Controller implements Initializable {
         Functions.openNewSceneWithUser(stage, user, loader, "Nastavenia");
         UserSettingsController userSettingsController=loader.getController();
         userSettingsController.setRodic(this);
+    }
+    public void onClickClose(){
+        Stage stage = (Stage) menuButton.getScene().getWindow();
+        stage.close();
+        System.out.println("Ahojadmin   ");
     }
 
 

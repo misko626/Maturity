@@ -75,6 +75,7 @@ public class RegistrationController implements Initializable {
             if (password.equals(registerPasswordField2.getText())) {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
+                String hashPass = Functions.MD5(password);
                 String sqlSelect = "SELECT * from USERS WHERE (email = ?)";
                 try {
                     preparedStatement = connection.prepareStatement(sqlSelect);
@@ -88,7 +89,7 @@ public class RegistrationController implements Initializable {
                             statement.setString(1, name);
                             statement.setString(2, lastName);
                             statement.setString(3, email);
-                            statement.setString(4, password);
+                            statement.setString(4, hashPass);
                             statement.setString(5, number);
                             int i = statement.executeUpdate();
                             System.out.println(i);
@@ -110,7 +111,7 @@ public class RegistrationController implements Initializable {
                         try {
                             statement = connection.prepareStatement(select);
                             statement.setString(1, email);
-                            statement.setString(2, password);
+                            statement.setString(2, hashPass);
                             ResultSet resultSet = statement.executeQuery();
                             if (!resultSet.next()) {
                                 //loginError.setText("Incorrect email or password");
@@ -118,7 +119,7 @@ public class RegistrationController implements Initializable {
                                 User user = new User(resultSet.getInt(1), name, lastName, email, password, number, resultSet.getInt("user_points"));
 
                                 Stage stage = (Stage) registerButton.getScene().getWindow();
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("../MainPage/mainPage.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("../MainPage/mainPageExtended.fxml"));
                                 Functions.openNewSceneWithUser(stage, user, loader, "Main Page");
                             }
                         } catch (Exception e) {

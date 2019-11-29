@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="514.0" prefWidth="361.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);" stylesheets="@../CSS/styleChoicebox.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainPage.PoziciavanieController">
+   <children>
+      <Pane layoutX="30.0" layoutY="26.0" prefHeight="415.0" prefWidth="301.0" style="-fx-background-color: #f2f2f2;">
+         <children>
+            <ImageView fx:id="btnKolobezka" fitHeight="62.0" fitWidth="62.0" layoutX="181.0" layoutY="140.0" onMouseClicked="#nastavNaKolobezku" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/kolobezkaBlack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnBicykel" fitHeight="70.0" fitWidth="62.0" layoutX="57.0" layoutY="140.0" onMouseClicked="#nastavNaBicykel" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/bikeBlack.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="22.0" layoutY="28.0" text="Vyber si depo.">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBox" layoutX="76.0" layoutY="67.0" prefWidth="150.0" />
+            <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="19.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/depo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="bicykleDostupne" layoutX="60.0" layoutY="215.0" textFill="#74eb15">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="kolobezkyDostupne" layoutX="177.0" layoutY="215.0" textFill="#74eb15">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBoxCas" layoutX="71.0" layoutY="311.0" prefHeight="18.0" prefWidth="150.0" />
+            <Label layoutX="22.0" layoutY="272.0" text="Na ako dlho si chces požčať ?">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="19.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/timeDO.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="22.0" layoutY="113.0" text="Vyber si čo si chceš požičať.">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="label" layoutX="63.0" layoutY="474.0" text="Label" textFill="#e10b0b">
+         <font>
+            <Font name="Segoe UI Bold" size="22.0" />
+         </font></Label>
+      <ImageView fx:id="closeButton" fitHeight="23.0" fitWidth="28.0" layoutX="328.0" layoutY="3.0" onMouseClicked="#onClickClose" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/cancel.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="pozicajBtn" layoutX="109.0" layoutY="424.0" onAction="#onClickPozicaj" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Požičaj" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </JFXButton>
+   </children>
+</AnchorPane>

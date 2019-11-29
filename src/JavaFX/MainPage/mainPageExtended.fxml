@@ -18,7 +18,14 @@
 
 <AnchorPane prefHeight="440.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainPage.MainPageController">
    <children>
-      <Pane layoutY="-2.0" prefHeight="156.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);;" />
+      <Pane layoutY="-2.0" prefHeight="156.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);;">
+         <children>
+            <ImageView fx:id="closeButton" fitHeight="23.0" fitWidth="28.0" layoutX="746.0" layoutY="5.0" onMouseClicked="#onClickClose" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/cancel.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <ImageView fx:id="mapImage" fitHeight="336.0" fitWidth="341.0" layoutX="36.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="80.0">
          <image>
             <Image url="@../img/mapa.png" />

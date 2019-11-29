@@ -112,7 +112,10 @@ public class UpdateUserController implements Initializable {
 
         this.rodic=rodic;
     }
-
+    public void onClickClose(){
+        Stage stage = (Stage) updateButton.getScene().getWindow();
+        stage.close();
+    }
 
 
 }

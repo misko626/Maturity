@@ -4,6 +4,7 @@ import JavaFX.Entity.Objednavky;
 import JavaFX.Functions;
 import JavaFX.NewScene;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +15,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,6 +48,7 @@ public class AdminPageObjednavkyController implements Initializable {
     @FXML
     public TableColumn<?, ?> tableColumnMesto;
 
+    double xOffset,yOffset;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -89,16 +94,19 @@ public class AdminPageObjednavkyController implements Initializable {
 
     public void update() throws IOException {
         System.out.println(tableObjednavky.getSelectionModel().getSelectedItem().getId());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("./updateObjednavky.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./updateObjednavkyExtended.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
+
         UpdateObjednavkyController updateObjednavkyController = loader.getController();
         updateObjednavkyController.fillFieldsObjednavky(tableObjednavky.getSelectionModel().getSelectedItem());
         updateObjednavkyController.setRodic(this);
         stage.setTitle("Update user");
         stage.setResizable(false);
         stage.setScene(scene);
+        movement(root,stage);
         stage.show();
     }
 
@@ -111,5 +119,21 @@ public class AdminPageObjednavkyController implements Initializable {
     public void onClickClose(){
         Stage stage = (Stage) tableObjednavky.getScene().getWindow();
         stage.close();
+    }
+    private void movement(Parent root, Stage stage){
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
     }
 }

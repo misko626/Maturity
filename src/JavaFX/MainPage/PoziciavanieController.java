@@ -133,6 +133,7 @@ public class PoziciavanieController extends Controller implements Initializable 
                     hodnotyCasBoxu[7] = "8 hod";
                     hodnotyCasBoxu[8] = "10 hod";
                     hodnotyCasBoxu[9] = "12 hod";
+                    choiceBoxCas.getItems().clear();
                     choiceBoxCas.getItems().addAll(hodnotyCasBoxu);
                     choiceBoxCas.setValue(choiceBoxCas.getItems().get(0));
                 });
@@ -144,15 +145,15 @@ public class PoziciavanieController extends Controller implements Initializable 
     public void nastavNaKolobezku() {
         kolobezka = true;
         System.out.println("kolobezka " + kolobezka);
-        btnBicykel.setImage(new Image(getClass().getResource("../img/bike.png").toString()));
-        btnKolobezka.setImage(new Image(getClass().getResource("../img/kick-green.png").toString()));
+        btnBicykel.setImage(new Image(getClass().getResource("../img/bikeBlack.png").toString()));
+        btnKolobezka.setImage(new Image(getClass().getResource("../img/kolobezka.png").toString()));
     }
 
     public void nastavNaBicykel() {
         kolobezka = false;
         System.out.println("kolobezka " + kolobezka);
-        btnBicykel.setImage(new Image(getClass().getResource("../img/bike-green.png").toString()));
-        btnKolobezka.setImage(new Image(getClass().getResource("../img/kick.png").toString()));
+        btnBicykel.setImage(new Image(getClass().getResource("../img/bicykel.png").toString()));
+        btnKolobezka.setImage(new Image(getClass().getResource("../img/kolobezkaBlack.png").toString()));
     }
 
     public void onClickPozicaj() {
@@ -234,5 +235,10 @@ public class PoziciavanieController extends Controller implements Initializable 
 
     public void setCaller(MainPageController caller) {
         this.caller = caller;
+    }
+    public void onClickClose(){
+        Stage stage = (Stage) pozicajBtn.getScene().getWindow();
+        stage.close();
+        System.out.println("Ahojadmin   ");
     }
 }
