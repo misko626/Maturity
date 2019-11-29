@@ -24,8 +24,6 @@ public class UpdateUserController implements Initializable {
     @FXML
     public TextField emailField;
     @FXML
-    public TextField passField;
-    @FXML
     public TextField userPointsField;
     @FXML
     public Button updateButton;
@@ -34,6 +32,7 @@ public class UpdateUserController implements Initializable {
     private AdminPageUsersController rodic;
 
     Alert alert = new Alert(Alert.AlertType.WARNING);
+    String pass = null;
 
 
     @Override
@@ -50,8 +49,8 @@ public class UpdateUserController implements Initializable {
         nameField.setText(user.getName());
         surNameField.setText(user.getSurname());
         emailField.setText(user.getEmail());
-        passField.setText(user.getPassword());
         userPointsField.setText(Integer.toString(user.getUserPoints()));
+        pass = user.getPassword();
 
     }
 
@@ -80,14 +79,7 @@ public class UpdateUserController implements Initializable {
             alert.setContentText("Zadaj čas");
 
             alert.showAndWait();
-        } else if (passField.getText().equals("")) {
 
-
-            alert.setTitle("Výstraha!");
-            alert.setHeaderText("Nezadaný čas");
-            alert.setContentText("Zadaj čas");
-
-            alert.showAndWait();
         }  else if (userPointsField.getText().equals("")) {
 
 
@@ -99,7 +91,7 @@ public class UpdateUserController implements Initializable {
         } else {
 
             ConnectionClass conn = new ConnectionClass();
-            conn.updateUser(id, nameField.getText(), surNameField.getText(), emailField.getText(), passField.getText(), Integer.parseInt(userPointsField.getText()));
+            conn.updateUser(id, nameField.getText(), surNameField.getText(), emailField.getText(),pass, Integer.parseInt(userPointsField.getText()));
 
             Stage stage = (Stage) updateButton.getScene().getWindow();
             rodic.getTableUsers().setItems(Functions.updateTableUsers());

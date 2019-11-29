@@ -49,21 +49,24 @@ public class LoginController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../AdminPage/Users/adminPageUsersExtended.fxml"));
             Functions.openNewScene(stage, loader, "Admin page");
         } else {
+
             String emailLogin = loginEmailField.getText().toString();
             String passwordLogin = loginPasswordField.getText().toString();
-            String hashPassLogin = Functions.MD5(passwordLogin);
-            String sql = "SELECT * from USERS WHERE (email = ? and password = ?)";
+
+            String sql = "SELECT * from USERS WHERE (email = ?)";
             try {
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, emailLogin);
-                preparedStatement.setString(2, hashPassLogin);
                 resultSet = preparedStatement.executeQuery();
+
                 if (!resultSet.next()) {
-                    loginError.setText("Nesprávne Meno alebo Heslo");
+                    loginError.setText("Užívateľ neexistuje");
                 } else {
+                    String hashPassLogin = Functions.MD5(passwordLogin,resultSet.getString(8));
+                    if (hashPassLogin.equals(resultSet.getString(5))){
                     User user = new User(resultSet.getInt(1), resultSet.getString(2),
                             resultSet.getString(3), resultSet.getString(4),
-                            resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7));
+                            resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7),resultSet.getString(8));
 
                     if (resultSet.getInt(7) == 0) {
                         alert.setTitle("Výstraha!");
@@ -74,6 +77,11 @@ public class LoginController implements Initializable {
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("../MainPage/mainPageExtended.fxml"));
                         Functions.openNewSceneWithUser(stage, user, loader, "Main page");
+                        System.out.println(Functions.generateRandomString(5));
+                    }
+                    }
+                    else{
+                        loginError.setText("Nesprávne Meno alebo Heslo");
                     }
                 }
             } catch (Exception e) {

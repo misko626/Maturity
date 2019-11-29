@@ -9,12 +9,13 @@ public class User {
     private String password;
     private String number;
     private int userPoints;
+    private String salt;
 
     public User(){
 
     }
 
-    public User(Integer id, String name, String surname, String email, String password, String number, int userPoints) {
+    public User(Integer id, String name, String surname, String email, String password, String number, int userPoints, String salt) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -22,6 +23,7 @@ public class User {
         this.password = password;
         this.number = number;
         this.userPoints = userPoints;
+        this.salt = salt;
     }
 
     public Integer getId() {
@@ -78,5 +80,13 @@ public class User {
 
     public void setUserPoints(int userPoints) {
         this.userPoints = userPoints;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

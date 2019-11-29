@@ -120,10 +120,10 @@ public class UserSettingsController extends Controller implements Initializable 
             alert.setContentText("Pre zmenu hesla je potrebné zadať znova nové heslo");
             alert.showAndWait();
         } else {
-            String oldPassHash = Functions.MD5(oldPassField.getText());
+            String oldPassHash = Functions.MD5(oldPassField.getText(),user.getSalt());
             if (user.getPassword().equals(oldPassHash)) {
                 if (newPassField.getText().equals(newPassField2.getText())) {
-                    String newPassHash = Functions.MD5(newPassField2.getText());
+                    String newPassHash = Functions.MD5(newPassField2.getText(),user.getSalt());
                     ConnectionClass conn = new ConnectionClass();
                     conn.updateUser(user.getId(), user.getName(), user.getSurname(), user.getEmail(), newPassHash, user.getUserPoints());
 

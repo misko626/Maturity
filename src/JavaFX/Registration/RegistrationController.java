@@ -71,11 +71,12 @@ public class RegistrationController implements Initializable {
             String email = registerEmailField.getText();
             String password = registerPasswordField.getText();
             String number = registerNumberField.getText();
+            String salt = Functions.generateRandomString(8);
             PreparedStatement statement = null;
             if (password.equals(registerPasswordField2.getText())) {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String hashPass = Functions.MD5(password);
+                String hashPass = Functions.MD5(password,salt);
                 String sqlSelect = "SELECT * from USERS WHERE (email = ?)";
                 try {
                     preparedStatement = connection.prepareStatement(sqlSelect);
@@ -83,7 +84,7 @@ public class RegistrationController implements Initializable {
                     resultSet = preparedStatement.executeQuery();
                     if (!resultSet.next()) {
                         System.out.println("Pripojene");
-                        String sql = "INSERT INTO USERS (first_name,last_name,email,password,phone_number,user_points)VALUES (?,?,?,?,?,10)";
+                        String sql = "INSERT INTO USERS (first_name,last_name,email,password,phone_number,user_points, salt)VALUES (?,?,?,?,?,10,?)";
                         try {
                             statement = connection.prepareStatement(sql);
                             statement.setString(1, name);
@@ -91,6 +92,7 @@ public class RegistrationController implements Initializable {
                             statement.setString(3, email);
                             statement.setString(4, hashPass);
                             statement.setString(5, number);
+                            statement.setString(6,salt);
                             int i = statement.executeUpdate();
                             System.out.println(i);
                             if (i == 1) {
@@ -116,7 +118,7 @@ public class RegistrationController implements Initializable {
                             if (!resultSet.next()) {
                                 //loginError.setText("Incorrect email or password");
                             } else {
-                                User user = new User(resultSet.getInt(1), name, lastName, email, password, number, resultSet.getInt("user_points"));
+                                User user = new User(resultSet.getInt(1), name, lastName, email, password, number, resultSet.getInt("user_points"),resultSet.getString(8));
 
                                 Stage stage = (Stage) registerButton.getScene().getWindow();
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../MainPage/mainPageExtended.fxml"));

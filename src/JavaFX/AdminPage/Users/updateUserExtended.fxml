@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="356.0" prefWidth="523.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff); -fx-border-color: gray; -fx-border-width: 3px;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Users.UpdateUserController">
+<AnchorPane prefHeight="315.0" prefWidth="529.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff); -fx-border-color: gray; -fx-border-width: 3px;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Users.UpdateUserController">
    <children>
-      <Pane layoutX="35.0" layoutY="25.0" prefHeight="286.0" prefWidth="459.0" style="-fx-background-color: #f2f2f2;" AnchorPane.leftAnchor="32.0">
+      <Pane layoutX="38.0" layoutY="25.0" prefHeight="251.0" prefWidth="459.0" style="-fx-background-color: #f2f2f2;" AnchorPane.leftAnchor="35.0">
          <children>
             <JFXTextField fx:id="nameField" focusColor="#1abc9c" labelFloat="true" layoutX="52.0" layoutY="60.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Meno">
                <effect>
@@ -39,7 +39,7 @@
                   <Font size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="passField" focusColor="#1abc9c" labelFloat="true" layoutX="281.0" layoutY="120.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Heslo">
+            <JFXTextField fx:id="userPointsField" focusColor="#1abc9c" labelFloat="true" layoutX="281.0" layoutY="120.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Body">
                <effect>
                   <Blend />
                </effect>
@@ -47,15 +47,7 @@
                   <Font size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="userPointsField" focusColor="#1abc9c" labelFloat="true" layoutX="150.0" layoutY="180.0" onAction="#updateUser" prefHeight="37.0" prefWidth="166.0" promptText="Body">
-               <effect>
-                  <Blend />
-               </effect>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXButton fx:id="updateButton" layoutX="161.0" layoutY="247.0" onAction="#updateUser" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Uprav" textFill="WHITE">
+            <JFXButton fx:id="updateButton" layoutX="162.0" layoutY="200.0" onAction="#updateUser" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Uprav" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
@@ -83,14 +75,9 @@
                   <Image url="@../../img/email.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="102.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/town.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="233.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/oldpass.png" />
+                  <Image url="@../../img/town.png" />
                </image>
             </ImageView>
          </children>

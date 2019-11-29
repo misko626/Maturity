@@ -18,10 +18,12 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class Functions {
 
@@ -29,6 +31,12 @@ public class Functions {
     private static Connection connection = connectionClass.getConnection();
     private static PreparedStatement statement = null;
     private static ResultSet rs = null;
+    private static final String lowerChar = "abcdefghijklmnopqrstuvwxyz";
+    private static final String upperChar = lowerChar.toUpperCase();
+    private static final String number = "0123456789";
+
+    private static final String stringData = lowerChar + upperChar + number;
+    private static SecureRandom random = new SecureRandom();
 
     public static void openNewSceneWithUser(Stage oldStage, User user, FXMLLoader loader, String title) throws IOException {
         Parent root = loader.load();
@@ -104,7 +112,7 @@ public class Functions {
             rs = statement.executeQuery();
             while (rs.next()) {
                 data.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7)));
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getString(8)));
             }
         } catch (
                 SQLException e) {
@@ -171,8 +179,9 @@ public class Functions {
             e.printStackTrace();
         }
     }
-    public static String MD5(String input) {
+    public static String MD5(String input, String salt) {
         try {
+            input=input+salt;
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(input.getBytes());
             BigInteger number = new BigInteger(1, messageDigest);
@@ -184,5 +193,22 @@ public class Functions {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public static String generateRandomString(int length) {
+        if (length < 1) throw new IllegalArgumentException();
+
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+
+            int rndCharAt = random.nextInt(stringData.length());
+            char rndChar = stringData.charAt(rndCharAt);
+
+
+            sb.append(rndChar);
+
+        }
+
+        return sb.toString();
+
     }
 }
