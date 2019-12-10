@@ -1,6 +1,5 @@
 package JavaFX.MainPage;
 
-
 import JavaFX.Controller;
 import JavaFX.Entity.Mesta;
 import JavaFX.Functions;
@@ -21,7 +20,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -94,7 +92,7 @@ public class MainPageController extends Controller implements Initializable {
                 if (!resultSet.next()) {
                     isLending = true;
                     lendButton.setStyle("-fx-background-color:   #1ABC9C;");
-                    lendButton.setText("Lend");
+                    lendButton.setText("Požičaj");
                     System.out.println("green");
                 } else {
                     setButtonToReturn();
@@ -124,7 +122,8 @@ public class MainPageController extends Controller implements Initializable {
             System.out.println("Vrátene");
             Stage stage = (Stage) new Stage();
             stage.setResizable(false);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("./vratenie.fxml"));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("./vratenieExtended.fxml"));
             Functions.openNewSceneWithUser(stage, user, loader, "Vrátenie");
             VratenieController vratenieController = loader.getController();
             vratenieController.setCaller(this);

@@ -25,8 +25,6 @@ import static JavaFX.MainPage.MainPageController.cisloMesta;
 public class VratenieController extends Controller implements Initializable {
 
     @FXML
-    private Label label;
-    @FXML
     private ChoiceBox choiceBox;
     @FXML
     private Button vratButton;
@@ -49,7 +47,6 @@ public class VratenieController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
-            label.setText("Používateľ: "+user.getName());
             userPoints = user.getUserPoints();
             ConnectionClass connectionClass = new ConnectionClass();
             Connection connection = connectionClass.getConnection();
@@ -95,8 +92,10 @@ public class VratenieController extends Controller implements Initializable {
             }
             //praca s userpointami
             casVratenia = (System.currentTimeMillis() / 1000);
+            System.out.println(casVratenia);
             //dlzka pozicania kolobezky v minutach
             dlzkaPozicania = data.getHodiny();
+            System.out.println(dlzkaPozicania);
             float rozdiel = data.getCas() - casVratenia;
             float cena = -1;
             //zistujem ci mam pripocitat user pointy alebo nie
@@ -107,7 +106,7 @@ public class VratenieController extends Controller implements Initializable {
             if (rozdiel >= 0) {
                 // vratil na cas
                 textVratenie.setText("Vrátil si včas");
-                textVratenie.setTextFill(Color.web("#74eb15"));
+                textVratenie.setTextFill(Color.web("#72b91b"));
                 if (userPoints > 10) {
                     int zlava = userPoints - 10;
                     zlavaLabel.setText("Získavaš zľavu " + zlava + "%");
@@ -151,5 +150,11 @@ public class VratenieController extends Controller implements Initializable {
 
     public void setCaller(MainPageController caller) {
         this.caller = caller;
+    }
+
+    public void onClickClose(){
+        Stage stage = (Stage) vratButton.getScene().getWindow();
+        stage.close();
+        System.out.println("Ahojadmin   ");
     }
 }

@@ -27,8 +27,6 @@ import static JavaFX.MainPage.MainPageController.cisloMesta;
 public class PoziciavanieController extends Controller implements Initializable {
 
     @FXML
-    private Label label;
-    @FXML
     private JFXTimePicker timeOd;
     @FXML
     private JFXTimePicker timeDo;
@@ -138,7 +136,7 @@ public class PoziciavanieController extends Controller implements Initializable 
                     choiceBoxCas.setValue(choiceBoxCas.getItems().get(0));
                 });
         Platform.runLater(() -> {
-            label.setText("Užívateľ: "+user.getName());
+
         });
     }
 

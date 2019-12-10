@@ -69,7 +69,7 @@
             <Font name="Agency FB" size="52.0" />
          </font>
       </Label>
-      <TableView fx:id="tableMain" layoutX="424.0" layoutY="179.0" prefHeight="183.0" prefWidth="298.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="179.0">
+      <TableView fx:id="tableMain" layoutX="424.0" layoutY="179.0" prefHeight="183.0" prefWidth="300.0" stylesheets="@../CSS/CSS-table.css" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="424.0" AnchorPane.topAnchor="179.0">
         <columns>
           <TableColumn fx:id="columnDepo" prefWidth="104.0" text="Depo:" />
           <TableColumn fx:id="columnKolobezky" minWidth="0.0" prefWidth="110.0" text="Kolobežky:" />
