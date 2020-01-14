@@ -22,9 +22,9 @@ public class ConnectionClass {
         return connection;
     }
 
-    public void updateUser(Integer id, String name, String surname, String emailemail, String password, int userpoints) {
+    public void updateUser(Integer id, String name, String surname, String emailemail, String password, int userpoints, double money) {
         getConnection();
-        String sql = "UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ?,user_points = ? where user_id= ?";
+        String sql = "UPDATE users SET first_name = ?, last_name = ?, email = ?, password = ?,user_points = ?,money = ? where user_id= ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, name);
@@ -32,7 +32,8 @@ public class ConnectionClass {
             pstmt.setString(3, emailemail);
             pstmt.setString(4, password);
             pstmt.setInt(5, userpoints);
-            pstmt.setInt(6, id);
+            pstmt.setDouble(6,money);
+            pstmt.setInt(7, id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

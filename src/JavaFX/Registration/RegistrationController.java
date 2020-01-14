@@ -118,7 +118,7 @@ public class RegistrationController implements Initializable {
                             if (!resultSet.next()) {
                                 //loginError.setText("Incorrect email or password");
                             } else {
-                                User user = new User(resultSet.getInt(1), name, lastName, email, password, number, resultSet.getInt("user_points"),resultSet.getString(8));
+                                User user = new User(resultSet.getInt(1), name, lastName, email, password, number, resultSet.getInt("user_points"),resultSet.getDouble(8),resultSet.getString(9));
 
                                 Stage stage = (Stage) registerButton.getScene().getWindow();
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../MainPage/mainPageExtended.fxml"));

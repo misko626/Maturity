@@ -28,15 +28,16 @@
             </image>
          </ImageView>
       </children></Pane>
-   <TableView fx:id="tableUsers" layoutX="200.0" layoutY="80.0" prefHeight="340.0" prefWidth="533.0" styleClass="table" stylesheets="@../../CSS/CSS-table.css">
+   <TableView fx:id="tableUsers" layoutX="180.0" layoutY="80.0" prefHeight="340.0" prefWidth="575.0" styleClass="table" stylesheets="@../../CSS/CSS-table.css">
       <columns>
-         <TableColumn fx:id="tableColumnId" prefWidth="48.0" text="ID" />
-         <TableColumn fx:id="tableColumnName" text="Meno" />
-         <TableColumn fx:id="tableColumnSurname" prefWidth="64.0" text="Priezvisko" />
-         <TableColumn fx:id="tableColumnEmail" prefWidth="110.0" text="Email" />
-         <TableColumn fx:id="tableColumnPassword" text="Heslo" />
-         <TableColumn fx:id="tableColumnNumber" prefWidth="74.0" text="Číslo" />
-         <TableColumn fx:id="tableColumnUserPoints" prefWidth="73.0" text="Body" />
+         <TableColumn fx:id="tableColumnId" prefWidth="38.0" text="ID" />
+         <TableColumn fx:id="tableColumnName" prefWidth="81.0" text="Meno" />
+         <TableColumn fx:id="tableColumnSurname" prefWidth="73.0" text="Priezvisko" />
+         <TableColumn fx:id="tableColumnEmail" prefWidth="91.0" text="Email" />
+         <TableColumn fx:id="tableColumnPassword" prefWidth="82.0" text="Heslo" />
+         <TableColumn fx:id="tableColumnNumber" prefWidth="85.0" text="Číslo preukazu" />
+         <TableColumn fx:id="tableColumnUserPoints" prefWidth="58.0" text="Body" />
+         <TableColumn fx:id="tableColumnMoney" prefWidth="64.0" text="Peniaze" />
       </columns>
       <effect>
          <DropShadow />
@@ -51,8 +52,8 @@
       </contextMenu>
    </TableView>
 
-      
-      
+            
+            
           <Pane prefHeight="440.0" prefWidth="162.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
          <Label layoutX="52.0" layoutY="126.0" text="ADMIN" textFill="#030303">

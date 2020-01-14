@@ -26,6 +26,8 @@ public class UpdateUserController implements Initializable {
     @FXML
     public TextField userPointsField;
     @FXML
+    public TextField moneyField;
+    @FXML
     public Button updateButton;
 
     private int id;
@@ -51,6 +53,8 @@ public class UpdateUserController implements Initializable {
         emailField.setText(user.getEmail());
         userPointsField.setText(Integer.toString(user.getUserPoints()));
         pass = user.getPassword();
+        moneyField.setText(user.getMoney()+"");
+
 
     }
 
@@ -91,7 +95,8 @@ public class UpdateUserController implements Initializable {
         } else {
 
             ConnectionClass conn = new ConnectionClass();
-            conn.updateUser(id, nameField.getText(), surNameField.getText(), emailField.getText(),pass, Integer.parseInt(userPointsField.getText()));
+
+            conn.updateUser(id, nameField.getText(), surNameField.getText(), emailField.getText(),pass, Integer.parseInt(userPointsField.getText()),Double.parseDouble(moneyField.getText()));
 
             Stage stage = (Stage) updateButton.getScene().getWindow();
             rodic.getTableUsers().setItems(Functions.updateTableUsers());

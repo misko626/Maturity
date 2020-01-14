@@ -62,11 +62,11 @@ public class LoginController implements Initializable {
                 if (!resultSet.next()) {
                     loginError.setText("Užívateľ neexistuje");
                 } else {
-                    String hashPassLogin = Functions.MD5(passwordLogin,resultSet.getString(8));
+                    String hashPassLogin = Functions.MD5(passwordLogin,resultSet.getString(9));
                     if (hashPassLogin.equals(resultSet.getString(5))){
                     User user = new User(resultSet.getInt(1), resultSet.getString(2),
                             resultSet.getString(3), resultSet.getString(4),
-                            resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7),resultSet.getString(8));
+                            resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7),resultSet.getDouble(8),resultSet.getString(9));
 
                     if (resultSet.getInt(7) == 0) {
                         alert.setTitle("Výstraha!");

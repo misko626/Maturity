@@ -42,6 +42,8 @@ public class AdminPageUsersController implements Initializable {
     @FXML
     public TableColumn<?, ?> tableColumnUserPoints;
     @FXML
+    public TableColumn<?, ?> tableColumnMoney;
+    @FXML
     public Button presovButton;
     @FXML
     public Button buttonKosice;
@@ -66,6 +68,7 @@ public class AdminPageUsersController implements Initializable {
         tableColumnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
         tableColumnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
         tableColumnUserPoints.setCellValueFactory(new PropertyValueFactory<>("userPoints"));
+        tableColumnMoney.setCellValueFactory(new PropertyValueFactory<>("money"));
     }
 
     public void onClickButtonPresov(ActionEvent event) throws IOException {

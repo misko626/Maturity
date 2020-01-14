@@ -54,6 +54,8 @@ public class MainPageController extends Controller implements Initializable {
     @FXML
     public TableView<Mesta> tableMain;
     @FXML
+    public Label money;
+    @FXML
     public TableColumn<?, ?> columnDepo;
     @FXML
     public TableColumn<?, ?> columnKolobezky;
@@ -72,6 +74,7 @@ public class MainPageController extends Controller implements Initializable {
         Platform.runLater(() -> {
             menoLabel.setText(user.getName());
             points.setText("" + user.getUserPoints());
+            money.setText(String.format("%10.2f", user.getMoney()) + " €");
             String s = "";
             if(user.getEmail().length() > 15){ s += "...";
             emailLabel.setText(user.getEmail().substring(0,15) + s);}

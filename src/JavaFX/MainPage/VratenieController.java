@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -43,7 +44,8 @@ public class VratenieController extends Controller implements Initializable {
     private long casVratenia;
     private float dlzkaPozicania;
     private int userPoints;
-
+    double cena = -1;
+    Alert alert = new Alert(Alert.AlertType.WARNING);
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
@@ -97,7 +99,6 @@ public class VratenieController extends Controller implements Initializable {
             dlzkaPozicania = data.getHodiny();
             System.out.println(dlzkaPozicania);
             float rozdiel = data.getCas() - casVratenia;
-            float cena = -1;
             //zistujem ci mam pripocitat user pointy alebo nie
             userPoints = (rozdiel >= 0) ? userPoints + 1 : userPoints - 1;
             if (userPoints > 40) {
@@ -127,25 +128,38 @@ public class VratenieController extends Controller implements Initializable {
         });
     }
     public void onClickVratButton() {
-        //updatovanie userpointov usera
-        ConnectionClass connectionClass = new ConnectionClass();
-        connectionClass.updateUser(user.getId(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), userPoints);
-        //vytvorenie objektu aktualneho depa ...vyberanie depa z mapu podla kluca
-        Depo aktualneDepo = setDepa.get(choiceBox.getValue());
-        if (kolobezka) {
-            aktualneDepo.setKolobezky(aktualneDepo.getKolobezky() + 1);
-        } else {
-            aktualneDepo.setBicykle(aktualneDepo.getBicykle() + 1);
+
+        if (user.getMoney()<cena){
+            alert.setTitle("Výstraha!");
+            alert.setHeaderText("Nízky finančný stav");
+            alert.setContentText("Prejdite k operátorovi depa");
+            alert.showAndWait();
+
+        }else {
+            //updatovanie userpointov usera
+            double money = user.getMoney() - cena;
+            user.setMoney(money);
+            ConnectionClass connectionClass = new ConnectionClass();
+            connectionClass.updateUser(user.getId(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), userPoints, money);
+            //vytvorenie objektu aktualneho depa ...vyberanie depa z mapu podla kluca
+            Depo aktualneDepo = setDepa.get(choiceBox.getValue());
+            if (kolobezka) {
+                aktualneDepo.setKolobezky(aktualneDepo.getKolobezky() + 1);
+            } else {
+                aktualneDepo.setBicykle(aktualneDepo.getBicykle() + 1);
+            }
+
+
+            connectionClass.updateDepa(aktualneDepo.getId(), aktualneDepo.getDepo(), aktualneDepo.getKolobezky(), aktualneDepo.getBicykle(), mesto);
+            Functions.deleteFromTableObjednavky(user.getEmail());
+
+
+            caller.setButtonToLend();
+
+            Stage stage = (Stage) vratButton.getScene().getWindow();
+            stage.close();
+            System.out.println("cas vratenia " + casVratenia);
         }
-
-        connectionClass.updateDepa(aktualneDepo.getId(), aktualneDepo.getDepo(), aktualneDepo.getKolobezky(), aktualneDepo.getBicykle(), mesto);
-        Functions.deleteFromTableObjednavky(user.getEmail());
-
-        caller.setButtonToLend();
-
-        Stage stage = (Stage) vratButton.getScene().getWindow();
-        stage.close();
-        System.out.println("cas vratenia " + casVratenia);
     }
 
     public void setCaller(MainPageController caller) {

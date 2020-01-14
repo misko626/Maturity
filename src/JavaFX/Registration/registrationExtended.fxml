@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Registration.RegistrationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Registration.RegistrationController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="563.0" prefWidth="727.0" style="-fx-background-color: transparent;">
          <children>
@@ -47,7 +47,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="registerNumberField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="261.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Tel. číslo">
+                  <JFXTextField fx:id="registerNumberField" focusColor="#ff9900" labelFloat="true" layoutX="73.0" layoutY="261.0" onAction="#registerOnClick" prefHeight="37.0" prefWidth="209.0" promptText="Číslo  občianského preukazu">
                      <effect>
                         <Blend />
                      </effect>
