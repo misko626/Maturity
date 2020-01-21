@@ -5,6 +5,8 @@ import JavaFX.Entity.Mesta;
 import JavaFX.Functions;
 import JavaFX.NewScene;
 import JavaFX.connectivity.ConnectionClass;
+import animatefx.animation.*;
+import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -17,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -52,9 +55,15 @@ public class MainPageController extends Controller implements Initializable {
     @FXML
     public Pane sideMenuPane;
     @FXML
+    public Pane upPane;
+    @FXML
     public TableView<Mesta> tableMain;
     @FXML
     public Label money;
+    @FXML
+    public ImageView logoImage;
+    @FXML
+    public Pane imagePane;
     @FXML
     public TableColumn<?, ?> columnDepo;
     @FXML
@@ -72,6 +81,8 @@ public class MainPageController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
+            new SlideInLeft(logoImage).play();
+            new Pulse(upPane).play();
             menoLabel.setText(user.getName());
             points.setText("" + user.getUserPoints());
             money.setText(String.format("%10.2f", user.getMoney()) + " €");
@@ -121,6 +132,8 @@ public class MainPageController extends Controller implements Initializable {
             Functions.openNewSceneWithUser(stage, user, loader, "Požičiavanie");
             PoziciavanieController poziciavanieController = loader.getController();
             poziciavanieController.setCaller(this);
+            new ZoomIn(loader.getRoot()).play();
+
         } else {
             System.out.println("Vrátene");
             Stage stage = (Stage) new Stage();
@@ -130,6 +143,7 @@ public class MainPageController extends Controller implements Initializable {
             Functions.openNewSceneWithUser(stage, user, loader, "Vrátenie");
             VratenieController vratenieController = loader.getController();
             vratenieController.setCaller(this);
+            new ZoomIn(loader.getRoot()).play();
         }
     }
 
@@ -152,6 +166,8 @@ public class MainPageController extends Controller implements Initializable {
         presovButton.setStyle("-fx-background-color:  #0c9c7f;");
         kosiceButton.setStyle("-fx-background-color:   #c3c6cc;");
         levocaButton.setStyle("-fx-background-color:   #c3c6cc;");
+        new Pulse(imagePane).play();
+        new FadeIn(mestoText).play();
     }
 
     public void onClickKosice() {
@@ -164,6 +180,8 @@ public class MainPageController extends Controller implements Initializable {
         kosiceButton.setStyle("-fx-background-color:  #0c9c7f;");
         presovButton.setStyle("-fx-background-color:   #c3c6cc;");
         levocaButton.setStyle("-fx-background-color:   #c3c6cc;");
+        new Pulse(imagePane).play();
+        new FadeIn(mestoText).play();
     }
 
 
@@ -177,6 +195,8 @@ public class MainPageController extends Controller implements Initializable {
         levocaButton.setStyle("-fx-background-color:  #0c9c7f;");
         presovButton.setStyle("-fx-background-color:   #c3c6cc;");
         kosiceButton.setStyle("-fx-background-color:   #c3c6cc;");
+        new Pulse(imagePane).play();
+        new FadeIn(mestoText).play();
     }
 
     public void setButtonToReturn() {
@@ -199,6 +219,7 @@ public class MainPageController extends Controller implements Initializable {
             tt.play();
             podmienkaMenu--;
             menuButton.setImage(new Image(getClass().getResource("../img/menuBack.png").toString()));
+            new Pulse(menuButton).play();
 
 
         } else {
@@ -208,6 +229,7 @@ public class MainPageController extends Controller implements Initializable {
             tt.play();
             podmienkaMenu++;
             menuButton.setImage(new Image(getClass().getResource("../img/menu.png").toString()));
+            new Pulse(menuButton).play();
         }
     }
 
@@ -220,6 +242,7 @@ public class MainPageController extends Controller implements Initializable {
         Functions.openNewSceneWithUser(stage, user, loader, "Nastavenia");
         UserSettingsController userSettingsController=loader.getController();
         userSettingsController.setRodic(this);
+        new FadeIn(loader.getRoot()).play();
     }
     public void onClickClose(){
         Stage stage = (Stage) menuButton.getScene().getWindow();

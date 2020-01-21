@@ -45,6 +45,7 @@ public class Functions {
         controller.setUser(user);
         oldStage.setTitle(title);
         oldStage.setScene(scene);
+        scene.setFill(Color.TRANSPARENT);
         oldStage.show();
         final double[] xOffset = new double[1];
         final double[] yOffset = new double[1];

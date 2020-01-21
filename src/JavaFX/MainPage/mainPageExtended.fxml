@@ -18,7 +18,7 @@
 
 <AnchorPane prefHeight="440.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainPage.MainPageController">
    <children>
-      <Pane layoutY="-2.0" prefHeight="156.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);;">
+      <Pane fx:id="upPane" layoutY="-2.0" prefHeight="156.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);;">
          <children>
             <ImageView fx:id="closeButton" fitHeight="23.0" fitWidth="28.0" layoutX="754.0" layoutY="5.0" onMouseClicked="#onClickClose" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,14 +26,6 @@
                </image>
             </ImageView>
          </children></Pane>
-      <ImageView fx:id="mapImage" fitHeight="336.0" fitWidth="341.0" layoutX="36.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="80.0">
-         <image>
-            <Image url="@../img/mapa.png" />
-         </image>
-         <effect>
-            <DropShadow />
-         </effect>
-      </ImageView>
       <JFXButton fx:id="presovButton" layoutX="411.0" layoutY="107.0" onAction="#onClickPresov" ripplerFill="BLACK" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="17.0" />
@@ -59,7 +51,7 @@
          </effect>
       </JFXButton>
       <Accordion />
-      <ImageView fitHeight="115.0" fitWidth="111.0" layoutX="25.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logoImage" fitHeight="115.0" fitWidth="111.0" layoutX="25.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo.png" />
          </image>
@@ -89,6 +81,34 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Label>
+      <ImageView fx:id="menuButton" fitHeight="44.0" fitWidth="44.0" layoutX="715.0" layoutY="21.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="21.0">
+         <image>
+            <Image url="@../img/menu.png" />
+         </image>
+         <effect>
+            <Blend />
+         </effect>
+      </ImageView>
+      <JFXButton fx:id="lendButton" layoutX="507.0" layoutY="376.0" onAction="#onClickPoziciavanie" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Požičaj" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </JFXButton>
+      <Pane fx:id="imagePane" layoutX="28.0" layoutY="63.0" prefHeight="371.0" prefWidth="375.0">
+         <children>
+            <ImageView fx:id="mapImage" fitHeight="336.0" fitWidth="341.0" layoutX="5.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/mapa.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
       <Pane fx:id="sideMenuPane" layoutX="-182.0" prefHeight="440.0" prefWidth="182.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-182.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="109.0" fitWidth="130.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -183,22 +203,6 @@
             <DropShadow />
          </effect>
       </Pane>
-      <ImageView fx:id="menuButton" fitHeight="44.0" fitWidth="44.0" layoutX="715.0" layoutY="21.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="21.0">
-         <image>
-            <Image url="@../img/menu.png" />
-         </image>
-         <effect>
-            <Blend />
-         </effect>
-      </ImageView>
-      <JFXButton fx:id="lendButton" layoutX="507.0" layoutY="376.0" onAction="#onClickPoziciavanie" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Požičaj" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-         <effect>
-            <DropShadow />
-         </effect>
-      </JFXButton>
 
 
    </children>

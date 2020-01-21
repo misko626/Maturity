@@ -4,6 +4,7 @@ import JavaFX.Functions;
 import JavaFX.Entity.User;
 import JavaFX.NewScene;
 import JavaFX.connectivity.ConnectionClass;
+import animatefx.animation.Pulse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -100,7 +101,8 @@ public class LoginController implements Initializable {
         NewScene.i.openNewScene2("Registration/registrationExtended.fxml");
         Stage stage = (Stage)joinUs.getScene().getWindow();
         stage.close();
-    }
+
+        }
     public void onClickClose(){
         Stage stage = (Stage) joinUs.getScene().getWindow();
         stage.close();

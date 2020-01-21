@@ -1,5 +1,7 @@
 package JavaFX;
 
+
+import animatefx.animation.*;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +38,8 @@ public class Main extends Application {
                 primaryStage.setY(event.getScreenY() - yOffset);
             }
         });
+
+        new SlideInUp(root).play();
     }
     public static void main(String[] args) {
         launch(args);

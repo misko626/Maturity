@@ -3,11 +3,15 @@ package JavaFX.MainPage;
 import JavaFX.Controller;
 import JavaFX.Entity.Depo;
 import JavaFX.connectivity.ConnectionClass;
+import animatefx.animation.Tada;
+import animatefx.animation.ZoomIn;
 import com.jfoenix.controls.JFXTimePicker;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -17,6 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.LinkedList;
@@ -229,6 +235,8 @@ public class PoziciavanieController extends Controller implements Initializable 
             Stage stage = (Stage) pozicajBtn.getScene().getWindow();
             stage.close();
         }
+
+
     }
 
     public void setCaller(MainPageController caller) {

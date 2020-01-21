@@ -1,5 +1,6 @@
 package JavaFX;
 
+import animatefx.animation.Pulse;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,6 +40,7 @@ public class NewScene {
                 oldStage.setY(event.getScreenY() - yOffset[0]);
             }
         });
+        new Pulse(root).play();
     }
 
 }
