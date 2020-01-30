@@ -4,6 +4,7 @@ import JavaFX.Functions;
 import JavaFX.Entity.Mesta;
 import JavaFX.NewScene;
 import JavaFX.connectivity.ConnectionClass;
+import animatefx.animation.Pulse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -93,6 +94,7 @@ public class AdminPageMestaController implements Initializable {
     }
 
     public void onClickButtonPresov() {
+        new Pulse(tablePresov).play();
         data.clear();
         mesto = "PREŠOV";
 
@@ -107,6 +109,7 @@ public class AdminPageMestaController implements Initializable {
     }
 
     public void onClickButtonKosice() {
+        new Pulse(tablePresov).play();
         mesto = "KOSICE";
         data.clear();
         tablePresov.setItems(Functions.updateTable(mesto));
@@ -117,6 +120,7 @@ public class AdminPageMestaController implements Initializable {
 
     }
     public void onClickButtonLevoca() {
+        new Pulse(tablePresov).play();
         mesto = "LEVOCA";
         data.clear();
         //Naplnenie tabulky udajmi

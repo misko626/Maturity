@@ -1,5 +1,4 @@
 package JavaFX.MainPage;
-
 import JavaFX.Controller;
 import JavaFX.Entity.Mesta;
 import JavaFX.Functions;
@@ -20,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -31,7 +31,6 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class MainPageController extends Controller implements Initializable {
-
     @FXML
     public Label menoLabel;
     @FXML
@@ -46,6 +45,8 @@ public class MainPageController extends Controller implements Initializable {
     public Button presovButton;
     @FXML
     public Button kosiceButton;
+    @FXML
+    public ImageView fullScreenButton;
     @FXML
     public Button levocaButton;
     @FXML
@@ -65,6 +66,8 @@ public class MainPageController extends Controller implements Initializable {
     @FXML
     public Pane imagePane;
     @FXML
+    public Pane paneWebView;
+    @FXML
     public TableColumn<?, ?> columnDepo;
     @FXML
     public TableColumn<?, ?> columnKolobezky;
@@ -72,11 +75,18 @@ public class MainPageController extends Controller implements Initializable {
     public TableColumn<?, ?> columnBicykle;
     @FXML
     public Label points;
+    @FXML
+    public Pane pane;
+    @FXML
+    public WebView webView;
+    @FXML
+    public ToggleButton toggleButton;
     int podmienkaMenu = 1;
     private ObservableList<Mesta> data;
     private String mesto = "";
     boolean isLending;
     Alert alert = new Alert(Alert.AlertType.WARNING);
+    boolean webViewPodmienka=true;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -93,6 +103,7 @@ public class MainPageController extends Controller implements Initializable {
             data = FXCollections.observableArrayList();
             setCellTable();
             onClickPresov();
+            webView.getEngine().load("https://www.google.sk/maps/@48.9990164,21.2341902,13.88z");
 
             ConnectionClass connectionClass = new ConnectionClass();
             Connection connection = connectionClass.getConnection();
@@ -159,6 +170,7 @@ public class MainPageController extends Controller implements Initializable {
     public void onClickPresov() {
         data.clear();
         mesto = "PREŠOV";
+        webView.getEngine().load("https://www.google.sk/maps/@48.9990164,21.2341902,13.88z");
         tableMain.setItems(Functions.updateTable(mesto));
         cisloMesta = 0;
         mapImage.setImage(new Image(getClass().getResource("../img/mapa.png").toString()));
@@ -168,11 +180,13 @@ public class MainPageController extends Controller implements Initializable {
         levocaButton.setStyle("-fx-background-color:   #c3c6cc;");
         new Pulse(imagePane).play();
         new FadeIn(mestoText).play();
+        new Pulse(paneWebView).play();
     }
 
     public void onClickKosice() {
         data.clear();
         mesto = "kosice";
+        webView.getEngine().load("https://www.google.sk/maps/@48.7167933,21.2635638,13.39z");
         tableMain.setItems(Functions.updateTable(mesto));
         cisloMesta = 1;
         mapImage.setImage(new Image(getClass().getResource("../img/mapa-kosice.png").toString()));
@@ -182,12 +196,14 @@ public class MainPageController extends Controller implements Initializable {
         levocaButton.setStyle("-fx-background-color:   #c3c6cc;");
         new Pulse(imagePane).play();
         new FadeIn(mestoText).play();
+        new Pulse(paneWebView).play();
+       // imagePane.toFront();
     }
-
 
     public void onClickLevoca() {
         data.clear();
         mesto = "levoca";
+        webView.getEngine().load("https://www.google.sk/maps/@49.0225687,20.583343,15.17z");
         tableMain.setItems(Functions.updateTable(mesto));
         cisloMesta = 2;
         mapImage.setImage(new Image(getClass().getResource("../img/mapa-levoca.png").toString()));
@@ -196,7 +212,10 @@ public class MainPageController extends Controller implements Initializable {
         presovButton.setStyle("-fx-background-color:   #c3c6cc;");
         kosiceButton.setStyle("-fx-background-color:   #c3c6cc;");
         new Pulse(imagePane).play();
+        new Pulse(paneWebView).play();
         new FadeIn(mestoText).play();
+
+
     }
 
     public void setButtonToReturn() {
@@ -212,6 +231,7 @@ public class MainPageController extends Controller implements Initializable {
     }
 
     public void onClickMenu() {
+            sideMenuPane.toFront();
         if (podmienkaMenu == 1) {
             TranslateTransition tt = new TranslateTransition(Duration.millis(250), sideMenuPane);
             tt.setByX(182);
@@ -220,6 +240,7 @@ public class MainPageController extends Controller implements Initializable {
             podmienkaMenu--;
             menuButton.setImage(new Image(getClass().getResource("../img/menuBack.png").toString()));
             new Pulse(menuButton).play();
+            
 
 
         } else {
@@ -247,7 +268,35 @@ public class MainPageController extends Controller implements Initializable {
     public void onClickClose(){
         Stage stage = (Stage) menuButton.getScene().getWindow();
         stage.close();
-        System.out.println("Ahojadmin   ");
+        System.out.println("Ahojadmin");
+    }
+    public void onClickMaps(){
+        if (toggleButton.isSelected())paneWebView.toFront();
+        else imagePane.toFront();
+
+    }
+    public void setFullScreenMaps(){
+        if (webViewPodmienka) {
+            paneWebView.setPrefSize(730, 430);
+            webView.setPrefSize(740, 410);
+            paneWebView.setLayoutX(10);
+            paneWebView.setLayoutY(10);
+            new Pulse(paneWebView).play();
+            fullScreenButton.setLayoutX(705);
+            fullScreenButton.setLayoutY(375);
+            webViewPodmienka=false;
+            fullScreenButton.setImage(new Image(getClass().getResource("../img/minimize.png").toString()));
+        }else {
+            paneWebView.setPrefSize(352, 345);
+            webView.setPrefSize(341, 336);
+            paneWebView.setLayoutX(28);
+            paneWebView.setLayoutY(85);
+            //new Pulse(paneWebView).play();
+            fullScreenButton.setLayoutX(295);
+            fullScreenButton.setLayoutY(297);
+            webViewPodmienka=true;
+            fullScreenButton.setImage(new Image(getClass().getResource("../img/maximize.png").toString()));
+        }
     }
 
 

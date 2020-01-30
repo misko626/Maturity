@@ -3,6 +3,7 @@ package JavaFX.AdminPage.Objednavky;
 import JavaFX.Entity.Objednavky;
 import JavaFX.Functions;
 import JavaFX.NewScene;
+import animatefx.animation.Pulse;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -53,6 +54,7 @@ public class AdminPageObjednavkyController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
+            new Pulse(tableObjednavky).play();
             objednavkyButton.setStyle("-fx-background-color:  #1ABC9C;");
             setCellTable();
             tableObjednavky.setItems(Functions.updateTableObjednavky());

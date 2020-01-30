@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
@@ -15,6 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
 <AnchorPane prefHeight="440.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainPage.MainPageController">
    <children>
@@ -25,6 +27,16 @@
                   <Image url="@../img/cancel.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="logoImage" fitHeight="54.0" fitWidth="143.0" layoutX="29.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logoGreen.png" />
+               </image>
+            </ImageView>
+            <JFXToggleButton fx:id="toggleButton" layoutX="224.0" layoutY="28.0" onAction="#onClickMaps" prefHeight="64.0" prefWidth="166.0" text="Google Mapy" textFill="#395751">
+               <font>
+                  <Font name="Agency FB Bold" size="19.0" />
+               </font>
+            </JFXToggleButton>
          </children></Pane>
       <JFXButton fx:id="presovButton" layoutX="411.0" layoutY="107.0" onAction="#onClickPresov" ripplerFill="BLACK" style="-fx-background-color: #c3c6cc;" text="Prešov" textFill="WHITE">
          <font>
@@ -51,11 +63,6 @@
          </effect>
       </JFXButton>
       <Accordion />
-      <ImageView fx:id="logoImage" fitHeight="115.0" fitWidth="111.0" layoutX="25.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/logo.png" />
-         </image>
-      </ImageView>
       <Label fx:id="mestoText" layoutX="515.0" layoutY="18.0" stylesheets="@../CSS/StyleFontsMain.css" text="Prešov" AnchorPane.topAnchor="18.0">
          <font>
             <Font name="Agency FB" size="52.0" />
@@ -81,14 +88,6 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Label>
-      <ImageView fx:id="menuButton" fitHeight="44.0" fitWidth="44.0" layoutX="715.0" layoutY="21.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="21.0">
-         <image>
-            <Image url="@../img/menu.png" />
-         </image>
-         <effect>
-            <Blend />
-         </effect>
-      </ImageView>
       <JFXButton fx:id="lendButton" layoutX="507.0" layoutY="376.0" onAction="#onClickPoziciavanie" prefHeight="38.0" prefWidth="143.0" ripplerFill="#0a0a0a" style="-fx-background-color: #1ABC9C;" text="Požičaj" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="20.0" />
@@ -97,18 +96,6 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <Pane fx:id="imagePane" layoutX="28.0" layoutY="63.0" prefHeight="371.0" prefWidth="375.0">
-         <children>
-            <ImageView fx:id="mapImage" fitHeight="336.0" fitWidth="341.0" layoutX="5.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/mapa.png" />
-               </image>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </ImageView>
-         </children>
-      </Pane>
       <Pane fx:id="sideMenuPane" layoutX="-182.0" prefHeight="440.0" prefWidth="182.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-182.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="109.0" fitWidth="130.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -202,6 +189,40 @@
          <effect>
             <DropShadow />
          </effect>
+      </Pane>
+      <ImageView fx:id="menuButton" fitHeight="44.0" fitWidth="44.0" layoutX="715.0" layoutY="21.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="21.0">
+         <image>
+            <Image url="@../img/menu.png" />
+         </image>
+         <effect>
+            <Blend />
+         </effect>
+      </ImageView>
+      <Pane fx:id="paneWebView" layoutX="28.0" layoutY="85.0" prefHeight="345.0" prefWidth="352.0">
+         <children>
+            <WebView fx:id="webView" layoutX="5.0" layoutY="4.0" prefHeight="336.0" prefWidth="341.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </WebView>
+            <ImageView fx:id="fullScreenButton" fitHeight="34.0" fitWidth="54.0" layoutX="295.0" layoutY="297.0" onMouseClicked="#setFullScreenMaps" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/maximize.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="imagePane" layoutX="28.0" layoutY="85.0" prefHeight="345.0" prefWidth="352.0">
+         <children>
+            <ImageView fx:id="mapImage" fitHeight="336.0" fitWidth="341.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/mapa.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
       </Pane>
 
 

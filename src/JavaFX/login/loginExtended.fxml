@@ -37,11 +37,6 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXPasswordField>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="177.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/logo.png" />
-                     </image>
-                  </ImageView>
                   <JFXButton fx:id="loginButton" layoutX="117.0" layoutY="353.0" onAction="#onClickLogin" prefHeight="43.0" prefWidth="95.0" ripplerFill="BLACK" style="-fx-background-color: #ff9900; -fx-border-radius: 1px; -fx-background-radius: 5px;" text="Prihlásiť" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
@@ -60,6 +55,11 @@
                         <Font name="Agency FB Bold" size="15.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="60.0" fitWidth="140.0" layoutX="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logoOrange.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <ImageView fitHeight="620.0" fitWidth="320.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">

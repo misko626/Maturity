@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="440.0" prefWidth="780.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.AdminPage.Users.AdminPageUsersController">
-   <Pane layoutX="3.0" layoutY="-1.0" prefHeight="165.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);;">
+   <Pane fx:id="upPane" layoutX="3.0" layoutY="-1.0" prefHeight="165.0" prefWidth="780.0" style="-fx-background-color: linear-gradient(to bottom, #a4a4a4, #bababa, #d1d1d1, #e8e8e8, #ffffff);;">
       <children>
          <Label fx:id="label" layoutX="401.0" layoutY="30.0" stylesheets="@../../CSS/StyleFonts.css" text="Používatelia" textFill="#362929">
             <font>
@@ -52,9 +52,9 @@
       </contextMenu>
    </TableView>
 
-            
-            
-          <Pane prefHeight="440.0" prefWidth="162.0" style="-fx-background-color: #f2f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        
+                        
+          <Pane fx:id="sideMenuPane" layoutX="-162.0" prefHeight="440.0" prefWidth="162.0" style="-fx-background-color: #f2f2f2;">
         <children>
          <Label layoutX="52.0" layoutY="126.0" text="ADMIN" textFill="#030303">
             <font>

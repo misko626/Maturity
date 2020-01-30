@@ -5,6 +5,11 @@ package JavaFX.AdminPage.Users;
 import JavaFX.Functions;
 import JavaFX.Entity.User;
 import JavaFX.NewScene;
+import animatefx.animation.Pulse;
+import animatefx.animation.SlideInLeft;
+import animatefx.animation.SlideInRight;
+import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,9 +20,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.event.ActionEvent;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,14 +58,36 @@ public class AdminPageUsersController implements Initializable {
     @FXML
     public Button pouzivateliaButton;
     @FXML
+    public ImageView closeButton;
+    @FXML
     public ImageView logoutImage;
+    @FXML
+    public Pane sideMenuPane;
+    @FXML
+    public Pane upPane;
 
+    int p =0;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Platform.runLater(() -> {
+            new Pulse(closeButton).play();
+            new Pulse(tableUsers).play();
+
+            p=1;
+        if (p==1) {
+            TranslateTransition tt = new TranslateTransition(Duration.millis(700), sideMenuPane);
+            tt.setByX(162);
+            tt.setAutoReverse(true);
+            tt.play();
+
+        }
+
+
         pouzivateliaButton.setStyle("-fx-background-color:  #1ABC9C;");
         setCellTable();
         //naplnenie tabulky udajmi
         tableUsers.setItems(Functions.updateTableUsers());
+        });
     }
 
     public void setCellTable() {
