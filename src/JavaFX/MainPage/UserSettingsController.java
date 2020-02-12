@@ -6,9 +6,7 @@ import JavaFX.Functions;
 import JavaFX.connectivity.ConnectionClass;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -85,7 +83,7 @@ public class UserSettingsController extends Controller implements Initializable 
         } else {
 
             ConnectionClass conn = new ConnectionClass();
-            conn.updateUserForSettings(user.getId(), nameField.getText(), surnameField.getText(), emailField.getText(), numberField.getText());
+            conn.updateUsersFromSettings(user.getId(), nameField.getText(), surnameField.getText(), emailField.getText(), numberField.getText());
 
             alert.setTitle("Výstraha!");
             alert.setHeaderText("Zmenené dáta o uživateľovi");

@@ -67,7 +67,7 @@
                   <Image url="@../img/email.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="numberField" focusColor="#1abc9c" labelFloat="true" layoutX="52.0" layoutY="219.0" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="185.0" promptText="Číslo">
+            <JFXTextField fx:id="numberField" focusColor="#1abc9c" labelFloat="true" layoutX="52.0" layoutY="219.0" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="185.0" promptText=" Číslo občianského preukazu">
                <effect>
                   <Blend />
                </effect>
@@ -77,7 +77,7 @@
             </JFXTextField>
             <ImageView fitHeight="37.0" fitWidth="100.0" layoutX="4.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/number.png" />
+                  <Image url="@../img/identity.png" />
                </image>
             </ImageView>
          </children>

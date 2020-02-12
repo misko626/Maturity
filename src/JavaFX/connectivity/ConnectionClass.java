@@ -14,7 +14,8 @@ public class ConnectionClass {
         String password = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lendit?serverTimezone=UTC", userName, password);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" +
+                    "lendit?serverTimezone=UTC", userName, password);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,7 +41,7 @@ public class ConnectionClass {
         }
     }
 
-    public void updateUserForSettings(Integer id, String name, String surname, String email, String number) {
+    public void updateUsersFromSettings(Integer id, String name, String surname, String email, String number) {
         getConnection();
         String sql = "UPDATE users SET first_name = ?, last_name = ?, email = ?,phone_number = ?where user_id= ?";
         try {
