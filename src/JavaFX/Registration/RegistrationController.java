@@ -84,7 +84,7 @@ public class RegistrationController implements Initializable {
                     resultSet = preparedStatement.executeQuery();
                     if (!resultSet.next()) {
                         System.out.println("Pripojene");
-                        String sql = "INSERT INTO USERS (first_name,last_name,email,password,phone_number,user_points, salt)VALUES (?,?,?,?,?,10,?)";
+                        String sql = "INSERT INTO USERS (first_name,last_name,email,password,phone_number,user_points,money,salt)VALUES (?,?,?,?,?,10,0,?)";
                         try {
                             statement = connection.prepareStatement(sql);
                             statement.setString(1, name);

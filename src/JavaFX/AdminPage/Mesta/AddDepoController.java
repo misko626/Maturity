@@ -54,7 +54,6 @@ public class AddDepoController implements Initializable {
             depo = depoField.getText();
             kolobezky = Integer.parseInt(kolobezkyField.getText());
             bicykle = Integer.parseInt(bicykleField.getText());
-
             ConnectionClass connectionClass = new ConnectionClass();
             connectionClass.insertDepo(depo, kolobezky, bicykle, mesto);
 

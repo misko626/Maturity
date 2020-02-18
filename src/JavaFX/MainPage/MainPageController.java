@@ -271,7 +271,6 @@ public class MainPageController extends Controller implements Initializable {
     public void onClickMaps(){
         if (toggleButton.isSelected())paneWebView.toFront();
         else imagePane.toFront();
-
     }
     public void setFullScreenMaps(){
         if (webViewPodmienka) {

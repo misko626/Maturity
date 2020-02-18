@@ -67,23 +67,24 @@ public class UserSettingsController extends Controller implements Initializable 
             alert.showAndWait();
         } else if (nameField.getText().equals("")) {
             alert.setTitle("Info");
-            alert.setHeaderText("Nezadal si depo");
-            alert.setContentText("Zadaj názov depa, ktoré chceš updatovat");
+            alert.setHeaderText("Nezadal si meno");
+            alert.setContentText("Zadaj na aké meno chceš upraviť.");
             alert.showAndWait();
         } else if (surnameField.getText().equals("")) {
             alert.setTitle("Info");
-            alert.setHeaderText("Nezadaný prostriedok");
-            alert.setContentText("Zadaj či chceš kolobežku alebo bicykel");
+            alert.setHeaderText("Nezadal si priezvisko.");
+            alert.setContentText("Zadaj na aké prizvisko chceš upraviť.");
             alert.showAndWait();
         } else if (emailField.getText().equals("")) {
             alert.setTitle("Info");
-            alert.setHeaderText("Nezadaný čas");
-            alert.setContentText("Zadaj čas");
+            alert.setHeaderText("Nedal si email");
+            alert.setContentText("Zadaj email na aký chceš zmeniť.");
             alert.showAndWait();
         } else {
 
             ConnectionClass conn = new ConnectionClass();
-            conn.updateUsersFromSettings(user.getId(), nameField.getText(), surnameField.getText(), emailField.getText(), numberField.getText());
+            conn.updateUsersFromSettings(user.getId(), nameField.getText(), surnameField.getText(),
+                    emailField.getText(), numberField.getText());
 
             alert.setTitle("Výstraha!");
             alert.setHeaderText("Zmenené dáta o uživateľovi");

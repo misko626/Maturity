@@ -58,7 +58,8 @@ public class UpdateMestaController implements Initializable {
             alert.showAndWait();
         } else {
             ConnectionClass conn = new ConnectionClass();
-            conn.updateDepa(id, depoField.getText(), Integer.parseInt(kolobezkyField.getText()), Integer.parseInt(bicykleField.getText()), mesto);
+            conn.updateDepa(id, depoField.getText(), Integer.parseInt(kolobezkyField.getText()),
+                    Integer.parseInt(bicykleField.getText()), mesto);
 
             Stage stage = (Stage) updateButton.getScene().getWindow();
             rodic.getTablePresov().setItems(Functions.updateTable(mesto));

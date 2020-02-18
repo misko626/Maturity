@@ -83,7 +83,8 @@ public class AdminPageMestaController implements Initializable {
     }
     public void onClickButtonUsers(ActionEvent event) throws IOException {
         Stage stage = (Stage) buttonKosice.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Users/adminPageUsersExtended.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("." +
+                "./Users/adminPageUsersExtended.fxml"));
         Functions.openNewScene(stage, loader, "Admin Page");
     }
     public void onClickButtonObjednavky() throws IOException {
